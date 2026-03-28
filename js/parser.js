@@ -2,7 +2,7 @@
 // PARSER.JS — GPT-4o mini via GitHub Models (free)
 // ─────────────────────────────────────────────────────────────────────────────
 
-const GITHUB_TOKEN = "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";
+const GITHUB_TOKEN = "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";
 const GITHUB_MODELS_URL = "https://models.inference.ai.azure.com/chat/completions";
 
 const CITY_COUNTRY = {
