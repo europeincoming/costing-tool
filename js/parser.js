@@ -261,3 +261,4 @@ function parseEmail(emailText){
     hasTM
   };
 }
+window.Parser = { parseEmail, determineCurrency, detectMarket };
