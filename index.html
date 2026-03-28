@@ -32,12 +32,6 @@
   .btn-green { background:#2e7d32; color:#fff; }
   .btn-green:hover { background:#1b5e20; }
   .btn-row { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-top:6px; }
-  .token-bar { background:#e8f0fe; border:1px solid #c5d5f5; border-radius:6px; padding:12px 16px; margin-bottom:20px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
-  .token-bar label { font-size:12px; font-weight:600; color:#1a3a5c; white-space:nowrap; }
-  .token-bar input { flex:1; min-width:260px; border:1px solid #aac; border-radius:5px; padding:7px 10px; font-size:12px; font-family:monospace; }
-  .token-bar .ai-badge { background:#1a3a5c; color:#fff; font-size:10px; padding:3px 8px; border-radius:10px; white-space:nowrap; }
-  .token-bar .fallback-badge { background:#f57c00; color:#fff; font-size:10px; padding:3px 8px; border-radius:10px; white-space:nowrap; }
-  .token-help { font-size:11px; color:#555; margin-top:4px; }
   .parse-preview { background:#f8fafc; border:1px solid #dce8f5; border-radius:6px; padding:14px; font-size:12px; }
   .parse-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
   .parse-item .key { color:#888; font-size:11px; text-transform:uppercase; }
@@ -77,22 +71,6 @@
 </div>
 
 <div class="main">
-
-  <!-- ── AI Token bar ── -->
-  <div class="token-bar">
-    <label>🤖 GitHub Token (for AI parsing):</label>
-    <input type="password" id="githubToken" placeholder="github_pat_xxxxxxxxxxxx" oninput="saveToken(this.value)">
-    <span id="aiBadge" class="fallback-badge">Rule-based mode</span>
-    <div style="width:100%">
-      <div class="token-help">
-        Enter your GitHub Personal Access Token to enable AI-powered parsing (GPT-4o mini). 
-        Without it the tool still works using rule-based parsing.
-        &nbsp;·&nbsp; <a href="https://github.com/settings/tokens/new?description=EI-Costing-Tool&scopes=models%3Aread" target="_blank" style="color:#1a3a5c">Generate token ↗</a>
-        &nbsp;(needs <strong>models:read</strong> scope only) · Token is saved in your browser only, never sent anywhere except GitHub.
-      </div>
-    </div>
-  </div>
-
   <!-- ── Email input ── -->
   <div class="card">
     <h2>1 · Paste Lead Email</h2>
@@ -202,44 +180,6 @@ window.CITY_COUNTRY = {
   ljubljana:"slovenia",bucharest:"romania",sofia:"bulgaria"
 };
 
-// ── Token management ─────────────────────────────────────────────────────────
-function saveToken(val) {
-  if (val) localStorage.setItem("ei_github_token", val);
-  else     localStorage.removeItem("ei_github_token");
-  updateAIBadge(val);
-}
-function loadToken() {
-  const t = localStorage.getItem("ei_github_token") || "";
-  if (t) {
-    document.getElementById("githubToken").value = t;
-    updateAIBadge(t);
-  }
-}
-function updateAIBadge(token) {
-  const badge = document.getElementById("aiBadge");
-  if (token && token.trim().startsWith("github_")) {
-    badge.textContent = "✓ AI mode (GPT-4o mini)";
-    badge.className = "ai-badge";
-  } else {
-    badge.textContent = "Rule-based mode";
-    badge.className = "fallback-badge";
-  }
-}
-function getToken() { return document.getElementById("githubToken").value.trim() || null; }
-
-// ── Rate loader ───────────────────────────────────────────────────────────────
-async function loadRates() {
-  const files = ["pg_coach","pg_guide","pg_tm","local_transport","pp_rates","hotel_rates"];
-  const loaded = {};
-  await Promise.all(files.map(async name => {
-    const res = await fetch("data/" + name + ".json");
-    if (!res.ok) throw new Error("Failed: " + name + ".json");
-    loaded[name] = await res.json();
-  }));
-  RATES = loaded;
-}
-
-loadToken();
 loadRates()
   .then(()  => setStatus("✓ Rate data loaded — ready", "ok"))
   .catch(e  => setStatus("⚠ " + e.message, "err"));
@@ -272,12 +212,11 @@ async function runGenerate() {
 
   document.getElementById("generateBtn").disabled = true;
   document.getElementById("spinner").style.display = "block";
-  const token = getToken();
-  setStatus(token ? "Calling GPT-4o mini…" : "Parsing (rule-based)…");
+  setStatus("Parsing lead…");
 
   try {
     // 1. Parse
-    let lead = await Parser.parseEmail(emailText, token);
+    let lead = await Parser.parseEmail(emailText);
 
     // 2. Apply overrides
     const ovPax      = document.getElementById("ovPax").value;
@@ -336,7 +275,7 @@ function showParsePreview(lead) {
   // AI mode note
   const aiNote = document.getElementById("aiNoteDiv");
   if (lead.parseMethod === "ai") {
-    aiNote.innerHTML = `<div class="ai-note">✓ Parsed by GPT-4o mini via GitHub Models${lead.agencyName&&lead.agencyName!=="Unknown Agency"?" · Agency: <strong>"+lead.agencyName+"</strong>":""}</div>`;
+    aiNote.innerHTML = `<div class="ai-note">✓ Parsed by Gemini 2.0 Flash${lead.agencyName&&lead.agencyName!=="Unknown Agency"?" · Agency: <strong>"+lead.agencyName+"</strong>":""}</div>`;
     aiNote.classList.remove("hidden");
   } else {
     aiNote.classList.add("hidden");
