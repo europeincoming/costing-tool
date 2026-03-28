@@ -1,0 +1,60 @@
+{
+  "London": [
+    {
+      "service": "Coach Half Day London, 4 hrs (between 08:00 - 18:00)",
+      "type": "half_day",
+      "rate": 550.0,
+      "currency": "GBP"
+    },
+    {
+      "service": "Coach Half Day Warner Bros. Studios, 6 hrs",
+      "type": "half_day",
+      "rate": 850.0,
+      "currency": "GBP"
+    },
+    {
+      "service": "Coach Full Day London, 8 hrs",
+      "type": "full_day",
+      "rate": 850.0,
+      "currency": "GBP"
+    },
+    {
+      "service": "Coach Full Day Windsor, 8 hrs",
+      "type": "full_day",
+      "rate": 850.0,
+      "currency": "GBP"
+    },
+    {
+      "service": "Coach Full Day Bath & Stonehenge",
+      "type": "full_day",
+      "rate": 850.0,
+      "currency": "GBP"
+    },
+    {
+      "service": "Heathrow LHR airport to Central London Arrival Transfer",
+      "type": "transfer",
+      "rate": 550.0,
+      "currency": "GBP"
+    },
+    {
+      "service": "Central London to Heathrow LHR airport Departure Transfer",
+      "type": "transfer",
+      "rate": 550.0,
+      "currency": "GBP"
+    },
+    {
+      "service": "Airport assistance",
+      "type": "transfer",
+      "rate": 190.0,
+      "currency": "GBP"
+    }
+  ],
+  "Venice": [
+    {
+      "service": "Murano, Burano with Assistant, 4 hrs",
+      "type": "half_day",
+      "rate": 850.0,
+      "currency": "EUR"
+    }
+  ]
+}

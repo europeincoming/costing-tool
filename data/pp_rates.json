@@ -1,0 +1,698 @@
+{
+  "Amsterdam": [
+    {
+      "service_type": "ENT",
+      "service_name": "Amsterdam Dungeons",
+      "rate": 19.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Heineken Experience",
+      "rate": 22.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Keukenhof Gardens",
+      "rate": 17.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Canal Cruise - 1 hour",
+      "rate": 10.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Madame Tussauds Amsterdam",
+      "rate": 19.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Madurodam admission",
+      "rate": 13.0,
+      "currency": "EUR"
+    }
+  ],
+  "Barcelona": [
+    {
+      "service_type": "ENT",
+      "service_name": "FC Barcelona Camp Nou Stadium Basic",
+      "rate": 28.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Flamenco show + drink",
+      "rate": 37.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Sagrada Familia admission",
+      "rate": 26.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Park G\u00fcell entrance ticket",
+      "rate": 10.0,
+      "currency": "EUR"
+    }
+  ],
+  "Brussels": [
+    {
+      "service_type": "ENT",
+      "service_name": "Mini Europe admission",
+      "rate": 13.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Atomium",
+      "rate": 13.0,
+      "currency": "EUR"
+    }
+  ],
+  "Budapest": [
+    {
+      "service_type": "ENT",
+      "service_name": "St Mathias Cathedral",
+      "rate": 8.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Szechenyi Spa Standard Ticket",
+      "rate": 31.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "1-hour Danube river boat tour",
+      "rate": 15.0,
+      "currency": "EUR"
+    }
+  ],
+  "Dublin": [
+    {
+      "service_type": "ENT",
+      "service_name": "Guinness Storehouse with one drink\n(non-alcoholic drink for under 18y)",
+      "rate": 20.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Saint Patrick's Cathedral",
+      "rate": 9.0,
+      "currency": "EUR"
+    }
+  ],
+  "Edinburgh": [
+    {
+      "service_type": "ENT",
+      "service_name": "Edinburgh Castle entrance ticket",
+      "rate": 20.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Scotch Whisky Silver Experience",
+      "rate": 21.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Royal Britannia Yatch",
+      "rate": 20.0,
+      "currency": "GBP"
+    }
+  ],
+  "Florence": [
+    {
+      "service_type": "ENT",
+      "service_name": "Uffizi Gallery",
+      "rate": 25.0,
+      "currency": "EUR"
+    }
+  ],
+  "Geneva": [
+    {
+      "service_type": "ENT",
+      "service_name": "Olympic Museum (In Lausanne)",
+      "rate": 14.0,
+      "currency": "CHF"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Chaplin museum entrance ticket (in Vevey, near Montreux)",
+      "rate": 18.0,
+      "currency": "CHF"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Maison Cailler chocolate museum admission ticket (in Broc)\n(chocolate tasting included)",
+      "rate": 13.0,
+      "currency": "CHF"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "La Maison du Gruyere cheese factory",
+      "rate": 6.0,
+      "currency": "CHF"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Palais de Nations (UN Headquarters)",
+      "rate": 22.0,
+      "currency": "CHF"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Chillon Castle entrance ticket",
+      "rate": 11.0,
+      "currency": "CHF"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Glacier 3000",
+      "rate": 50.0,
+      "currency": "CHF"
+    }
+  ],
+  "Gstaad": [
+    {
+      "service_type": "RST",
+      "service_name": "Indian Lunch at Gstaad",
+      "rate": 25.0,
+      "currency": "CHF"
+    }
+  ],
+  "Innsbruck": [
+    {
+      "service_type": "ENT",
+      "service_name": "Swarovski crystal world entrance (no transport)",
+      "rate": 17.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Tyrolean Folk Show with one drink",
+      "rate": 23.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Nordkette - Top of Innsbruck Roundtrip\n(Includes Innsbruck-Hungerburg funicular, Hungerburg-Seegrube cable car, Seegrube-Hafalekar cable car)",
+      "rate": 47.0,
+      "currency": "EUR"
+    }
+  ],
+  "Interlaken": [
+    {
+      "service_type": "ENT",
+      "service_name": "Lauterbrunnen / Grindelwald - Jungfraujoch Roundtrip with Indian Lunch",
+      "rate": 199.0,
+      "currency": "CHF"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Harder Kulm",
+      "rate": 44.0,
+      "currency": "CHF"
+    }
+  ],
+  "Lisbon": [
+    {
+      "service_type": "ENT",
+      "service_name": "Lisbon Yacht Sailing Tour, 2 hrs",
+      "rate": 30.0,
+      "currency": "EUR"
+    }
+  ],
+  "London": [
+    {
+      "service_type": "ENT",
+      "service_name": "Thames river cruise one way ticket (Westminster/London eye -Tower( or Vice versa)",
+      "rate": 9.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Madame Tussauds Standard Entry",
+      "rate": 22.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "London Eye (Standard Experience) ticket\nOptional: Upgrade to Fast-track ticket at \u00a3 14/pp",
+      "rate": 22.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "SEA LIFE Aquarium ticket",
+      "rate": 18.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Tower of London Entrance",
+      "rate": 23.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Lords Cricket Ground",
+      "rate": 25.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "FC Chelsea Stanford Stadium",
+      "rate": 28.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "FC Arsenal Emirates Stadium",
+      "rate": 25.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Wimbledon Tennis court",
+      "rate": 27.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Windsor Castle",
+      "rate": 24.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Stonehenge admission",
+      "rate": 28.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Roman Bath admission",
+      "rate": 22.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "RST",
+      "service_name": "Standard meals lunch",
+      "rate": 25.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "RST",
+      "service_name": "Standard meals Dinner",
+      "rate": 35.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "RST",
+      "service_name": "Student meals",
+      "rate": 16.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "RST",
+      "service_name": "soft drink",
+      "rate": 5.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "RST",
+      "service_name": "Half bottle of wine",
+      "rate": 10.0,
+      "currency": "GBP"
+    }
+  ],
+  "United Kingdom": [
+    {
+      "service_type": "RST",
+      "service_name": "Water bottle 500 ml",
+      "rate": 1.0,
+      "currency": "GBP"
+    }
+  ],
+  "Europe": [
+    {
+      "service_type": "RST",
+      "service_name": "Water bottle 500 ml",
+      "rate": 1.0,
+      "currency": "EUR"
+    }
+  ],
+  "Lucerne": [
+    {
+      "service_type": "ENT",
+      "service_name": "Mount Titlis with Ice Flyer",
+      "rate": 68.0,
+      "currency": "CHF"
+    },
+    {
+      "service_type": "RST",
+      "service_name": "Indian Lunch at Titlis",
+      "rate": 24.0,
+      "currency": "CHF"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Lake Lucerne Cruise",
+      "rate": 9.0,
+      "currency": "CHF"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "One day Saver Pass",
+      "rate": 52.0,
+      "currency": "CHF"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Mount Pilatus",
+      "rate": 78.0,
+      "currency": "CHF"
+    }
+  ],
+  "Zermatt": [
+    {
+      "service_type": "ENT",
+      "service_name": "Matterhorn",
+      "rate": 87.0,
+      "currency": "CHF"
+    }
+  ],
+  "Madrid": [
+    {
+      "service_type": "ENT",
+      "service_name": "Santiago Bernabeu Real Madrid Stadium Tour",
+      "rate": 25.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Flamenco Las Tablas with Drink, 1 hr",
+      "rate": 38.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Las Ventas Tour Bullring and Bullfighting Museum",
+      "rate": 15.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Prado Museum",
+      "rate": 15.0,
+      "currency": "EUR"
+    }
+  ],
+  "Munich": [
+    {
+      "service_type": "ENT",
+      "service_name": "FC Bayern Museum + Arena Tour Allianz Arena Stadium",
+      "rate": 28.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "BMW Museum standard",
+      "rate": 9.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Neuschwanstein Castle",
+      "rate": 21.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Zugspitze round-trip ticket",
+      "rate": 72.0,
+      "currency": "EUR"
+    }
+  ],
+  "Paris": [
+    {
+      "service_type": "ENT",
+      "service_name": "Louvre Museum Entrance ticket",
+      "rate": 22.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Eiffel Tower 2nd level ticket\n(Guests shall stand in the queue & payable directly)",
+      "rate": 19.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Eiffel Tower 3rd level, Summit ticket\n(Guests shall stand in the queue & payable directly)",
+      "rate": 29.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Versailles Palace (Castle Only)\nAdd \u20ac 10/pp for Gardens",
+      "rate": 21.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Seine River Cruise 1 hour",
+      "rate": 10.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Paradis Latin show with dinner (Eiffel Evening)",
+      "rate": 175.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Paradis Latin, second show without dinner",
+      "rate": 105.0,
+      "currency": "EUR"
+    }
+  ],
+  "Prague": [
+    {
+      "service_type": "ENT",
+      "service_name": "Prague Castle (Main Circuit) admission",
+      "rate": 18.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Panoramic Vitava River Cruise, 1 hr",
+      "rate": 12.0,
+      "currency": "EUR"
+    }
+  ],
+  "Rome": [
+    {
+      "service_type": "ENT",
+      "service_name": "Colloseum admission",
+      "rate": 18.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Vatican Museums and Sistine Chapel Entrance",
+      "rate": 33.0,
+      "currency": "EUR"
+    }
+  ],
+  "Salzburg": [
+    {
+      "service_type": "ENT",
+      "service_name": "Salt Mines admission",
+      "rate": 32.0,
+      "currency": "EUR"
+    }
+  ],
+  "Seville": [
+    {
+      "service_type": "ENT",
+      "service_name": "Alcazar admission",
+      "rate": 14.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Ticket Guadalquivir River Cruise, 1 hr",
+      "rate": 15.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Ticket Flamenco Show with 1 drink",
+      "rate": 35.0,
+      "currency": "EUR"
+    }
+  ],
+  "Venice": [
+    {
+      "service_type": "ENT",
+      "service_name": "Gondola Ride, 30 mins (max 4 pax / Gondola)",
+      "rate": 25.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Doge's Palace",
+      "rate": 25.0,
+      "currency": "EUR"
+    }
+  ],
+  "Vienna": [
+    {
+      "service_type": "ENT",
+      "service_name": "Schonbrunn Palace admission",
+      "rate": 27.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Prater - Ferris Wheel",
+      "rate": 14.0,
+      "currency": "EUR"
+    }
+  ],
+  "Zurich": [
+    {
+      "service_type": "ENT",
+      "service_name": "Lindt Chocolate tour admission ticket (audio guided tour)",
+      "rate": 14.0,
+      "currency": "CHF"
+    },
+    {
+      "service_type": "ENT",
+      "service_name": "Rhine Falls boat ride (30 mins yellow line) skip the line ticket",
+      "rate": 7.0,
+      "currency": "CHF"
+    }
+  ],
+  "Europe  excuding Switzerland": [
+    {
+      "service_type": "RST",
+      "service_name": "Buffet Lunch at Indian restaurant 2+1",
+      "rate": 16.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "RST",
+      "service_name": "Buffet Dinner at Indian restaurant 2+1",
+      "rate": 18.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "RST",
+      "service_name": "additional items for lunch and dinner",
+      "rate": 2.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "RST",
+      "service_name": "3 Course Local Meal",
+      "rate": 20.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "RST",
+      "service_name": "Gala dinner with 2+2 Starters",
+      "rate": 45.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "RST",
+      "service_name": "2 hrs Drinks package with beer, wine & Soft drinks",
+      "rate": 12.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "RST",
+      "service_name": "2 hrs Liquor Package (Black Label, Smirnoff and Bacardi)",
+      "rate": 18.0,
+      "currency": "EUR"
+    }
+  ],
+  "Switzerland": [
+    {
+      "service_type": "RST",
+      "service_name": "Buffet Lunch at Indian restaurant 2+1",
+      "rate": 18.0,
+      "currency": "CHF"
+    },
+    {
+      "service_type": "RST",
+      "service_name": "Buffet Dinner at Indian restaurant 2+1",
+      "rate": 20.0,
+      "currency": "CHF"
+    },
+    {
+      "service_type": "RST",
+      "service_name": "additional items for lunch and dinner",
+      "rate": 2.0,
+      "currency": "CHF"
+    }
+  ],
+  "UK": [
+    {
+      "service_type": "ENT",
+      "service_name": "Theatre Tickets",
+      "rate": 55.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "RST",
+      "service_name": "Buffet Dinner at local restaurant - continental menu",
+      "rate": 22.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "RST",
+      "service_name": "PUB LUNCH - continental menu",
+      "rate": 20.0,
+      "currency": "EUR"
+    },
+    {
+      "service_type": "RST",
+      "service_name": "3 Course Local Meal - continental menu",
+      "rate": 25.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "RST",
+      "service_name": "Gala dinner with 2+2 Starters - continental menu",
+      "rate": 45.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "RST",
+      "service_name": "2 hrs Drinks package with beer, wine & Soft drinks - continental menu",
+      "rate": 12.0,
+      "currency": "GBP"
+    },
+    {
+      "service_type": "RST",
+      "service_name": "2 hrs Liquor Package (Black Label, Smirnoff and Bacardi)",
+      "rate": 18.0,
+      "currency": "GBP"
+    }
+  ]
+}

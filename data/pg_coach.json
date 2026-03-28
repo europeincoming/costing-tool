@@ -1,0 +1,18 @@
+{
+  "Europe  excuding Switzerland": {
+    "rate": 950.0,
+    "currency": "EUR"
+  },
+  "Scotland": {
+    "rate": 950.0,
+    "currency": "GBP"
+  },
+  "England": {
+    "rate": 850.0,
+    "currency": "GBP"
+  },
+  "Switzerland": {
+    "rate": 1050.0,
+    "currency": "CHF"
+  }
+}

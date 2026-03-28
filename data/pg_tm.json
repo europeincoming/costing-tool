@@ -1,0 +1,44 @@
+{
+  "UK|Indian tour manager for UK": {
+    "city": "UK",
+    "service": "Indian tour manager for UK",
+    "rate": 100.0,
+    "currency": "GBP"
+  },
+  "UK|Indian tour manager for UK, flight expense": {
+    "city": "UK",
+    "service": "Indian tour manager for UK, flight expense",
+    "rate": 1200.0,
+    "currency": "GBP"
+  },
+  "UK|European Tour Manager for UK": {
+    "city": "UK",
+    "service": "European Tour Manager for UK",
+    "rate": 450.0,
+    "currency": "GBP"
+  },
+  "Europe|Indian tour manager for Europe": {
+    "city": "Europe",
+    "service": "Indian tour manager for Europe",
+    "rate": 140.0,
+    "currency": "EUR"
+  },
+  "Europe|Indian tour manager for Europe, flight expense": {
+    "city": "Europe",
+    "service": "Indian tour manager for Europe, flight expense",
+    "rate": 1200.0,
+    "currency": "EUR"
+  },
+  "Europe|European tour manager for Europe": {
+    "city": "Europe",
+    "service": "European tour manager for Europe",
+    "rate": 450.0,
+    "currency": "EUR"
+  },
+  "Europe|European tour manager for Europe, Flights": {
+    "city": "Europe",
+    "service": "European tour manager for Europe, Flights",
+    "rate": 400.0,
+    "currency": "EUR"
+  }
+}

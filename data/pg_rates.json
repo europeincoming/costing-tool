@@ -1,0 +1,654 @@
+{
+  "guides": {
+    "Amsterdam": [
+      {
+        "name": "Half Day (3 hours)",
+        "duration": "half_day",
+        "rate": 230.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Full Day (6 hours)",
+        "duration": "full_day",
+        "rate": 390.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Coach Evening Guided Tour, Amsterdam, English, max 2 hours",
+        "duration": "half_day",
+        "rate": 266.2,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, Amsterdam, English, max 9 hours",
+        "duration": "half_day",
+        "rate": 399.3,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      }
+    ],
+    "Barcelona": [
+      {
+        "name": "Half Day (3 hours)",
+        "duration": "half_day",
+        "rate": 160.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Full Day (6 hours)",
+        "duration": "full_day",
+        "rate": 285.0,
+        "currency": "EUR"
+      }
+    ],
+    "Brussels": [
+      {
+        "name": "Half Day (3 hours)",
+        "duration": "half_day",
+        "rate": 250.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Coach Guided Tour, Brussels, English, 4 hours",
+        "duration": "half_day",
+        "rate": 235.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, Brussels, English, 8 hours",
+        "duration": "full_day",
+        "rate": 415.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      }
+    ],
+    "Budapest": [
+      {
+        "name": "Half Day (3 hours)",
+        "duration": "half_day",
+        "rate": 160.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Full Day (6 hours)",
+        "duration": "full_day",
+        "rate": 310.0,
+        "currency": "EUR"
+      }
+    ],
+    "Dublin": [
+      {
+        "name": "Half Day (3 hours)",
+        "duration": "half_day",
+        "rate": 150.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Full Day (6 hours)",
+        "duration": "full_day",
+        "rate": 250.0,
+        "currency": "EUR"
+      }
+    ],
+    "Edinburgh": [
+      {
+        "name": "Half Day (3 hours)",
+        "duration": "half_day",
+        "rate": 200.0,
+        "currency": "GBP"
+      },
+      {
+        "name": "Full Day (6 hours)",
+        "duration": "full_day",
+        "rate": 325.0,
+        "currency": "GBP"
+      }
+    ],
+    "Florence": [
+      {
+        "name": "Half Day (3 hours)",
+        "duration": "half_day",
+        "rate": 210.0,
+        "currency": "EUR"
+      }
+    ],
+    "Pisa": [
+      {
+        "name": "Half Day (3 hours)",
+        "duration": "half_day",
+        "rate": 210.0,
+        "currency": "EUR"
+      }
+    ],
+    "Geneva": [
+      {
+        "name": "City Tour for 2 hours",
+        "duration": "half_day",
+        "rate": 300.0,
+        "currency": "CHF"
+      }
+    ],
+    "Gstaad": [
+      {
+        "name": "One hour guided Village walking tour around Gstaad",
+        "duration": "half_day",
+        "rate": 120.0,
+        "currency": "CHF"
+      }
+    ],
+    "Lisbon": [
+      {
+        "name": "Half Day (3 hours)",
+        "duration": "half_day",
+        "rate": 150.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Full Day (6 hours)",
+        "duration": "full_day",
+        "rate": 320.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Coach Guided Tour, Lisbon, English, 4 hours (Mon- Fri)",
+        "duration": "half_day",
+        "rate": 246.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, Lisbon, English, 4 hours (Sat- Sun)",
+        "duration": "half_day",
+        "rate": 290.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, Lisbon, English, 8 hours (Mon- Fri)",
+        "duration": "full_day",
+        "rate": 345.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, Lisbon, English, 8 hours (Sat- Sun)",
+        "duration": "full_day",
+        "rate": 413.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      }
+    ],
+    "London": [
+      {
+        "name": "Half Day (3 hours)",
+        "duration": "half_day",
+        "rate": 210.0,
+        "currency": "GBP"
+      },
+      {
+        "name": "Full Day (6 hours)",
+        "duration": "full_day",
+        "rate": 340.0,
+        "currency": "GBP"
+      },
+      {
+        "name": "Coach Guided Tour, London, English, 4 hours",
+        "duration": "half_day",
+        "rate": 229.0,
+        "currency": "GBP",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, London, English, 8 hours",
+        "duration": "full_day",
+        "rate": 374.0,
+        "currency": "GBP",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, London, Other language, 4 hours",
+        "duration": "half_day",
+        "rate": 258.0,
+        "currency": "GBP",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, London, Other language, 8 hours",
+        "duration": "full_day",
+        "rate": 411.0,
+        "currency": "GBP",
+        "source": "supplier_csv"
+      }
+    ],
+    "Munich": [
+      {
+        "name": "Half Day (3 hours)",
+        "duration": "half_day",
+        "rate": 250.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Half Day (3 hours)",
+        "duration": "half_day",
+        "rate": 221.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Full Day (6 hours)",
+        "duration": "full_day",
+        "rate": 425.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Walking + Coach Guided Tour, Munich, English, 3 hours",
+        "duration": "half_day",
+        "rate": 255.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, Munich, English, 4 hours",
+        "duration": "half_day",
+        "rate": 310.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, Munich, English, 8 hours",
+        "duration": "full_day",
+        "rate": 530.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      }
+    ],
+    "Paris": [
+      {
+        "name": "Louvre RoV for Groups",
+        "duration": "half_day",
+        "rate": 70.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Half Day (3 hours)",
+        "duration": "half_day",
+        "rate": 200.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Full Day (6 hours)",
+        "duration": "full_day",
+        "rate": 410.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Coach Guided Tour, Paris, English, 4 hours",
+        "duration": "half_day",
+        "rate": 320.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, Paris, English, 8 hours",
+        "duration": "full_day",
+        "rate": 500.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      }
+    ],
+    "Prague": [
+      {
+        "name": "Half Day (3 hours)",
+        "duration": "half_day",
+        "rate": 180.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Full Day (6 hours)",
+        "duration": "full_day",
+        "rate": 290.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Coach Guided Tour, Prague, English, 4 hours",
+        "duration": "half_day",
+        "rate": 170.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      }
+    ],
+    "Rome": [
+      {
+        "name": "Half Day (3 hours)",
+        "duration": "half_day",
+        "rate": 240.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Full Day (6 hours)",
+        "duration": "full_day",
+        "rate": 450.0,
+        "currency": "EUR"
+      }
+    ],
+    "Salzburg": [
+      {
+        "name": "Half Day (2 hours)",
+        "duration": "half_day",
+        "rate": 200.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Full Day (6 hours)",
+        "duration": "full_day",
+        "rate": 300.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Coach Guided Tour, Salzburg, English, 2 hours",
+        "duration": "half_day",
+        "rate": 178.5,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, Salzburg, English, 4 hours",
+        "duration": "half_day",
+        "rate": 210.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, Salzburg, English, 8 hours",
+        "duration": "full_day",
+        "rate": 320.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      }
+    ],
+    "Seville": [
+      {
+        "name": "Half Day (3 hours)",
+        "duration": "half_day",
+        "rate": 200.0,
+        "currency": "EUR"
+      }
+    ],
+    "Venice": [
+      {
+        "name": "Half Day (2 hours)",
+        "duration": "half_day",
+        "rate": 250.0,
+        "currency": "EUR"
+      }
+    ],
+    "Vienna": [
+      {
+        "name": "Half Day (3 hours)",
+        "duration": "half_day",
+        "rate": 226.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Full Day (6 hours)",
+        "duration": "full_day",
+        "rate": 457.0,
+        "currency": "EUR"
+      },
+      {
+        "name": "Coach Guided Tour, Vienna, English, 3 hours",
+        "duration": "half_day",
+        "rate": 323.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, Vienna, English, 8 hours",
+        "duration": "full_day",
+        "rate": 646.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      }
+    ],
+    "Zurich": [
+      {
+        "name": "Half Day (2 hours)",
+        "duration": "half_day",
+        "rate": 280.0,
+        "currency": "CHF"
+      },
+      {
+        "name": "Coach Guided Tour, Zurich, English, 3 hours",
+        "duration": "half_day",
+        "rate": 368.0,
+        "currency": "CHF",
+        "source": "supplier_csv"
+      }
+    ],
+    "Switzerland": [
+      {
+        "name": "Half day guided tour",
+        "duration": "half_day",
+        "rate": 280.0,
+        "currency": "CHF"
+      }
+    ],
+    "Lucerne": [
+      {
+        "name": "Coach Guided Tour, Lucerne, English, 4 hours",
+        "duration": "half_day",
+        "rate": 320.0,
+        "currency": "CHF",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, Lucerne, English, 8 hours",
+        "duration": "full_day",
+        "rate": 520.0,
+        "currency": "CHF",
+        "source": "supplier_csv"
+      }
+    ],
+    "Madrid": [
+      {
+        "name": "Coach Guided Tour, Madrid, English, 3 hours (WDs)",
+        "duration": "half_day",
+        "rate": 190.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, Madrid, English, 4 hours (WDs)",
+        "duration": "half_day",
+        "rate": 220.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, Outside Madrid, English, 8 hours (WDs)",
+        "duration": "full_day",
+        "rate": 340.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      }
+    ],
+    "Basel": [
+      {
+        "name": "Coach Guided Tour, Basel, English, 2 hours",
+        "duration": "half_day",
+        "rate": 300.0,
+        "currency": "CHF",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, Basel, English, 4 hours",
+        "duration": "half_day",
+        "rate": 450.0,
+        "currency": "CHF",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, Basel, English, 8 hours",
+        "duration": "full_day",
+        "rate": 650.0,
+        "currency": "CHF",
+        "source": "supplier_csv"
+      }
+    ],
+    "Helsinki": [
+      {
+        "name": "Coach Guided Tour, Helsinki, English, 2 hours (Mon-Sat)",
+        "duration": "half_day",
+        "rate": 199.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, Helsinki, English, max 4 hours (Mon-Sat)",
+        "duration": "half_day",
+        "rate": 283.0,
+        "currency": "EUR",
+        "source": "supplier_csv"
+      }
+    ],
+    "Oslo": [
+      {
+        "name": "Coach Guided Tour, Oslo, English, 3 hours",
+        "duration": "half_day",
+        "rate": 3150.0,
+        "currency": "NOK",
+        "source": "supplier_csv"
+      },
+      {
+        "name": "Coach Guided Tour, Oslo, English, extra hour",
+        "duration": "half_day",
+        "rate": 720.0,
+        "currency": "NOK",
+        "source": "supplier_csv"
+      }
+    ]
+  },
+  "coach_ldc": {
+    "Europe  excuding Switzerland": {
+      "rate": 950.0,
+      "currency": "EUR"
+    },
+    "Scotland": {
+      "rate": 950.0,
+      "currency": "GBP"
+    },
+    "England": {
+      "rate": 850.0,
+      "currency": "GBP"
+    },
+    "Switzerland": {
+      "rate": 1050.0,
+      "currency": "CHF"
+    }
+  },
+  "coach_local": {
+    "London": [
+      {
+        "name": "Coach Half Day London, 4 hrs (between 08:00 - 18:00)",
+        "type": "half_day",
+        "rate": 550.0,
+        "currency": "GBP"
+      },
+      {
+        "name": "Coach Half Day Warner Bros. Studios, 6 hrs",
+        "type": "half_day",
+        "rate": 850.0,
+        "currency": "GBP"
+      },
+      {
+        "name": "Coach Full Day London, 8 hrs",
+        "type": "full_day",
+        "rate": 850.0,
+        "currency": "GBP"
+      },
+      {
+        "name": "Coach Full Day Windsor, 8 hrs",
+        "type": "full_day",
+        "rate": 850.0,
+        "currency": "GBP"
+      },
+      {
+        "name": "Coach Full Day Bath & Stonehenge",
+        "type": "full_day",
+        "rate": 850.0,
+        "currency": "GBP"
+      },
+      {
+        "name": "Heathrow LHR airport to Central London Arrival Transfer",
+        "type": "transfer",
+        "rate": 550.0,
+        "currency": "GBP"
+      },
+      {
+        "name": "Central London to Heathrow LHR airport Departure Transfer",
+        "type": "transfer",
+        "rate": 550.0,
+        "currency": "GBP"
+      },
+      {
+        "name": "Airport assistance",
+        "type": "transfer",
+        "rate": 190.0,
+        "currency": "GBP"
+      }
+    ],
+    "Venice": [
+      {
+        "name": "Murano, Burano with Assistant, 4 hrs",
+        "type": "half_day",
+        "rate": 850.0,
+        "currency": "EUR"
+      }
+    ]
+  },
+  "tour_managers": {
+    "indian tour manager for uk": {
+      "rate": 100.0,
+      "currency": "GBP",
+      "city": "UK",
+      "name": "Indian tour manager for UK"
+    },
+    "indian tour manager for uk, flight expense": {
+      "rate": 1200.0,
+      "currency": "GBP",
+      "city": "UK",
+      "name": "Indian tour manager for UK, flight expense"
+    },
+    "european tour manager for uk": {
+      "rate": 450.0,
+      "currency": "GBP",
+      "city": "UK",
+      "name": "European Tour Manager for UK"
+    },
+    "indian tour manager for europe": {
+      "rate": 140.0,
+      "currency": "EUR",
+      "city": "Europe",
+      "name": "Indian tour manager for Europe"
+    },
+    "indian tour manager for europe, flight expense": {
+      "rate": 1200.0,
+      "currency": "EUR",
+      "city": "Europe",
+      "name": "Indian tour manager for Europe, flight expense"
+    },
+    "european tour manager for europe": {
+      "rate": 450.0,
+      "currency": "EUR",
+      "city": "Europe",
+      "name": "European tour manager for Europe"
+    },
+    "european tour manager for europe, flights": {
+      "rate": 400.0,
+      "currency": "EUR",
+      "city": "Europe",
+      "name": "European tour manager for Europe, Flights"
+    }
+  }
+}

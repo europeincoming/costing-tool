@@ -1,0 +1,221 @@
+{
+  "Amsterdam": {
+    "half_day": {
+      "rate": 230.0,
+      "currency": "EUR",
+      "service": "Half Day (3 hours)"
+    },
+    "full_day": {
+      "rate": 390.0,
+      "currency": "EUR",
+      "service": "Full Day (6 hours)"
+    }
+  },
+  "Barcelona": {
+    "half_day": {
+      "rate": 160.0,
+      "currency": "EUR",
+      "service": "Half Day (3 hours)"
+    },
+    "full_day": {
+      "rate": 285.0,
+      "currency": "EUR",
+      "service": "Full Day (6 hours)"
+    }
+  },
+  "Brussels": {
+    "half_day": {
+      "rate": 250.0,
+      "currency": "EUR",
+      "service": "Half Day (3 hours)"
+    }
+  },
+  "Budapest": {
+    "half_day": {
+      "rate": 160.0,
+      "currency": "EUR",
+      "service": "Half Day (3 hours)"
+    },
+    "full_day": {
+      "rate": 310.0,
+      "currency": "EUR",
+      "service": "Full Day (6 hours)"
+    }
+  },
+  "Dublin": {
+    "half_day": {
+      "rate": 150.0,
+      "currency": "EUR",
+      "service": "Half Day (3 hours)"
+    },
+    "full_day": {
+      "rate": 250.0,
+      "currency": "EUR",
+      "service": "Full Day (6 hours)"
+    }
+  },
+  "Edinburgh": {
+    "half_day": {
+      "rate": 200.0,
+      "currency": "GBP",
+      "service": "Half Day (3 hours)"
+    },
+    "full_day": {
+      "rate": 325.0,
+      "currency": "GBP",
+      "service": "Full Day (6 hours)"
+    }
+  },
+  "Florence": {
+    "half_day": {
+      "rate": 210.0,
+      "currency": "EUR",
+      "service": "Half Day (3 hours)"
+    }
+  },
+  "Pisa": {
+    "half_day": {
+      "rate": 210.0,
+      "currency": "EUR",
+      "service": "Half Day (3 hours)"
+    }
+  },
+  "Geneva": {
+    "half_day": {
+      "rate": 300.0,
+      "currency": "CHF",
+      "service": "City Tour for 2 hours"
+    }
+  },
+  "Gstaad": {
+    "half_day": {
+      "rate": 120.0,
+      "currency": "CHF",
+      "service": "One hour guided Village walking tour around Gstaad"
+    }
+  },
+  "Lisbon": {
+    "half_day": {
+      "rate": 150.0,
+      "currency": "EUR",
+      "service": "Half Day (3 hours)"
+    },
+    "full_day": {
+      "rate": 320.0,
+      "currency": "EUR",
+      "service": "Full Day (6 hours)"
+    }
+  },
+  "London": {
+    "half_day": {
+      "rate": 210.0,
+      "currency": "GBP",
+      "service": "Half Day (3 hours)"
+    },
+    "full_day": {
+      "rate": 340.0,
+      "currency": "GBP",
+      "service": "Full Day (6 hours)"
+    }
+  },
+  "Munich": {
+    "half_day": {
+      "rate": 221.0,
+      "currency": "EUR",
+      "service": "Half Day (3 hours)"
+    },
+    "full_day": {
+      "rate": 425.0,
+      "currency": "EUR",
+      "service": "Full Day (6 hours)"
+    }
+  },
+  "Paris": {
+    "half_day": {
+      "rate": 70.0,
+      "currency": "EUR",
+      "service": "Louvre RoV for Groups"
+    },
+    "full_day": {
+      "rate": 410.0,
+      "currency": "EUR",
+      "service": "Full Day (6 hours)"
+    }
+  },
+  "Prague": {
+    "half_day": {
+      "rate": 180.0,
+      "currency": "EUR",
+      "service": "Half Day (3 hours)"
+    },
+    "full_day": {
+      "rate": 290.0,
+      "currency": "EUR",
+      "service": "Full Day (6 hours)"
+    }
+  },
+  "Rome": {
+    "half_day": {
+      "rate": 240.0,
+      "currency": "EUR",
+      "service": "Half Day (3 hours)"
+    },
+    "full_day": {
+      "rate": 450.0,
+      "currency": "EUR",
+      "service": "Full Day (6 hours)"
+    }
+  },
+  "Salzburg": {
+    "half_day": {
+      "rate": 200.0,
+      "currency": "EUR",
+      "service": "Half Day (2 hours)"
+    },
+    "full_day": {
+      "rate": 300.0,
+      "currency": "EUR",
+      "service": "Full Day (6 hours)"
+    }
+  },
+  "Seville": {
+    "half_day": {
+      "rate": 200.0,
+      "currency": "EUR",
+      "service": "Half Day (3 hours)"
+    }
+  },
+  "Venice": {
+    "half_day": {
+      "rate": 250.0,
+      "currency": "EUR",
+      "service": "Half Day (2 hours)"
+    }
+  },
+  "Vienna": {
+    "half_day": {
+      "rate": 226.0,
+      "currency": "EUR",
+      "service": "Half Day (3 hours)"
+    },
+    "full_day": {
+      "rate": 457.0,
+      "currency": "EUR",
+      "service": "Full Day (6 hours)"
+    }
+  },
+  "Zurich": {
+    "half_day": {
+      "rate": 280.0,
+      "currency": "CHF",
+      "service": "Half Day (2 hours)"
+    }
+  },
+  "Switzerland": {
+    "half_day": {
+      "rate": 280.0,
+      "currency": "CHF",
+      "service": "Half day guided tour"
+    }
+  }
+}

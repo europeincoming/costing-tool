@@ -1,0 +1,2036 @@
+{
+  "London": [
+    {
+      "hotel_name": "4* hotel in London City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 76.0,
+      "single_rate": 117.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/01/2026",
+      "date_to": "31/03/2026"
+    },
+    {
+      "hotel_name": "4* hotel in London City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 76.0,
+      "single_rate": 117.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in London City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 91.0,
+      "single_rate": 150.0,
+      "currency": "GBP",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    },
+    {
+      "hotel_name": "3* hotel in London City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 48.0,
+      "single_rate": 90.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/01/2026",
+      "date_to": "31/03/2026"
+    },
+    {
+      "hotel_name": "3* hotel in London City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 48.0,
+      "single_rate": 90.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in London City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 81.0,
+      "single_rate": 148.0,
+      "currency": "GBP",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    },
+    {
+      "hotel_name": "4* hotel in London Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 43.0,
+      "single_rate": 75.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/01/2026",
+      "date_to": "31/03/2026"
+    },
+    {
+      "hotel_name": "4* hotel in London Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 43.0,
+      "single_rate": 75.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in London Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 43.0,
+      "single_rate": 75.0,
+      "currency": "GBP",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    },
+    {
+      "hotel_name": "3* hotel in London Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 40.0,
+      "single_rate": 70.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/01/2026",
+      "date_to": "31/03/2026"
+    },
+    {
+      "hotel_name": "3* hotel in London Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 40.0,
+      "single_rate": 70.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in London Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 40.0,
+      "single_rate": 70.0,
+      "currency": "GBP",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    }
+  ],
+  "Paris": [
+    {
+      "hotel_name": "4* hotel in Paris City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 63.0,
+      "single_rate": 116.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/01/2026",
+      "date_to": "31/03/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Paris City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 63.0,
+      "single_rate": 116.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Paris City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 76.0,
+      "single_rate": 155.0,
+      "currency": "GBP",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Paris City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 60.0,
+      "single_rate": 114.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/01/2026",
+      "date_to": "31/03/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Paris City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 60.0,
+      "single_rate": 114.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Paris City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 60.0,
+      "single_rate": 114.0,
+      "currency": "GBP",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Paris Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 42.0,
+      "single_rate": 78.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/01/2026",
+      "date_to": "31/03/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Paris Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 42.0,
+      "single_rate": 78.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Paris Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 47.0,
+      "single_rate": 88.0,
+      "currency": "GBP",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Paris Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 50.0,
+      "single_rate": 88.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/01/2026",
+      "date_to": "31/03/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Paris Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 50.0,
+      "single_rate": 88.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Paris Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 50.0,
+      "single_rate": 88.0,
+      "currency": "GBP",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    }
+  ],
+  "Zurich": [
+    {
+      "hotel_name": "4* hotel in Zurich City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 103.0,
+      "single_rate": 180.0,
+      "currency": "CHF",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Zurich City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 82.0,
+      "single_rate": 136.0,
+      "currency": "CHF",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Zurich Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 68.0,
+      "single_rate": 100.0,
+      "currency": "CHF",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Zurich Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 72.0,
+      "single_rate": 116.0,
+      "currency": "CHF",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Zurich Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 70.0,
+      "single_rate": 93.0,
+      "currency": "CHF",
+      "season": "low",
+      "date_from": "01/01/2026",
+      "date_to": "31/03/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Zurich Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 70.0,
+      "single_rate": 93.0,
+      "currency": "CHF",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Zurich Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 68.0,
+      "single_rate": 104.0,
+      "currency": "CHF",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    }
+  ],
+  "Lucerne": [
+    {
+      "hotel_name": "4* hotel in Lucerne",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 110.0,
+      "single_rate": 170.0,
+      "currency": "CHF",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Lucerne",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 137.0,
+      "single_rate": 224.0,
+      "currency": "CHF",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Lucerne",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 72.0,
+      "single_rate": 131.0,
+      "currency": "CHF",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Lucerne Area",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 58.0,
+      "single_rate": 91.0,
+      "currency": "CHF",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Lucerne Area",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 57.0,
+      "single_rate": 85.0,
+      "currency": "CHF",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    }
+  ],
+  "Rome": [
+    {
+      "hotel_name": "4* hotel in Rome City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 55.0,
+      "single_rate": 108.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/01/2026",
+      "date_to": "31/03/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Rome City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 55.0,
+      "single_rate": 108.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Rome City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 55.0,
+      "single_rate": 108.0,
+      "currency": "GBP",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Rome City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 55.0,
+      "single_rate": 108.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/01/2026",
+      "date_to": "31/03/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Rome City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 55.0,
+      "single_rate": 108.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Rome City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 55.0,
+      "single_rate": 108.0,
+      "currency": "GBP",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Rome Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 55.0,
+      "single_rate": 99.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/01/2026",
+      "date_to": "31/03/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Rome Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 55.0,
+      "single_rate": 99.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Rome Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 55.0,
+      "single_rate": 99.0,
+      "currency": "GBP",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Rome Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 55.0,
+      "single_rate": 99.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/01/2026",
+      "date_to": "31/03/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Rome Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 55.0,
+      "single_rate": 99.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Rome Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 55.0,
+      "single_rate": 99.0,
+      "currency": "GBP",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    }
+  ],
+  "Amsterdam": [
+    {
+      "hotel_name": "4* hotel in Amsterdam City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 130.0,
+      "single_rate": 175.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/01/2026",
+      "date_to": "31/03/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Amsterdam City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 130.0,
+      "single_rate": 175.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Amsterdam City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 130.0,
+      "single_rate": 175.0,
+      "currency": "GBP",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Amsterdam City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 64.0,
+      "single_rate": 121.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/01/2026",
+      "date_to": "31/03/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Amsterdam City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 64.0,
+      "single_rate": 121.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Amsterdam City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 64.0,
+      "single_rate": 113.0,
+      "currency": "GBP",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Amsterdam Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 77.0,
+      "single_rate": 139.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/01/2026",
+      "date_to": "31/03/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Amsterdam Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 77.0,
+      "single_rate": 139.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Amsterdam Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 70.0,
+      "single_rate": 119.0,
+      "currency": "GBP",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Amsterdam Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 65.0,
+      "single_rate": 125.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/01/2026",
+      "date_to": "31/03/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Amsterdam Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 65.0,
+      "single_rate": 125.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Amsterdam Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 65.0,
+      "single_rate": 125.0,
+      "currency": "GBP",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    }
+  ],
+  "Edinburgh": [
+    {
+      "hotel_name": "4* hotel in Edinburgh City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 79.0,
+      "single_rate": 126.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Edinburgh City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 74.0,
+      "single_rate": 126.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Edinburgh Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 70.0,
+      "single_rate": 112.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Edinburgh Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 66.0,
+      "single_rate": 112.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Birmingham": [
+    {
+      "hotel_name": "3* hotel in Birmingham City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 101.0,
+      "single_rate": 55.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Barcelona": [
+    {
+      "hotel_name": "4* hotel in Barcelona City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 68.0,
+      "single_rate": 112.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Barcelona City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 43.0,
+      "single_rate": 79.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Barcelona Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 64.0,
+      "single_rate": 106.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Barcelona Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 41.0,
+      "single_rate": 74.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Venice": [
+    {
+      "hotel_name": "4* hotel in Venice City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 101.0,
+      "single_rate": 128.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Venice City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 63.0,
+      "single_rate": 95.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Venice Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 90.0,
+      "single_rate": 114.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Venice Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 56.0,
+      "single_rate": 84.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Innsbruck": [
+    {
+      "hotel_name": "4* hotel in Innsbruck",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 42.0,
+      "single_rate": 74.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Innsbruck",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 40.0,
+      "single_rate": 70.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Innsbruck Area",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 33.0,
+      "single_rate": 60.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Innsbruck Area",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 31.0,
+      "single_rate": 58.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Brussels": [
+    {
+      "hotel_name": "4* hotel in Brussels City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 67.0,
+      "single_rate": 123.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/01/2026",
+      "date_to": "31/03/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Brussels City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 67.0,
+      "single_rate": 123.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Brussels City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 70.0,
+      "single_rate": 130.0,
+      "currency": "GBP",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Brussels City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 44.0,
+      "single_rate": 77.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Brussels Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 41.0,
+      "single_rate": 73.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Brussels Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 37.0,
+      "single_rate": 64.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Dublin": [
+    {
+      "hotel_name": "4* hotel in Dublin City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 68.0,
+      "single_rate": 130.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Dublin City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 61.0,
+      "single_rate": 115.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Dublin Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 60.0,
+      "single_rate": 116.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Dublin Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 54.0,
+      "single_rate": 102.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Luxembourg": [
+    {
+      "hotel_name": "4* hotel in Luxembourg",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 61.0,
+      "single_rate": 100.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/01/2026",
+      "date_to": "31/03/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Luxembourg",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 61.0,
+      "single_rate": 100.0,
+      "currency": "GBP",
+      "season": "low",
+      "date_from": "01/11/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Luxembourg",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 61.0,
+      "single_rate": 112.0,
+      "currency": "GBP",
+      "season": "high",
+      "date_from": "01/04/2026",
+      "date_to": "31/10/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Luxembourg Area",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 57.0,
+      "single_rate": 101.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Luxembourg Area",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 43.0,
+      "single_rate": 77.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Munich": [
+    {
+      "hotel_name": "4* hotel in Munich City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 45.0,
+      "single_rate": 81.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Munich City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 43.0,
+      "single_rate": 79.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Munich Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 40.0,
+      "single_rate": 72.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Munich Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 38.0,
+      "single_rate": 70.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Nice": [
+    {
+      "hotel_name": "4* hotel in Nice City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 117.0,
+      "single_rate": 211.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Nice City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 85.0,
+      "single_rate": 139.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Nice Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 104.0,
+      "single_rate": 188.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Nice Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 76.0,
+      "single_rate": 124.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Copenhagen": [
+    {
+      "hotel_name": "3* hotel in Copenhagen City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 43.0,
+      "single_rate": 74.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Copenhagen Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 56.0,
+      "single_rate": 100.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Copenhagen Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 38.0,
+      "single_rate": 66.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Interlaken": [
+    {
+      "hotel_name": "3* hotel in Interlaken",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 63.0,
+      "single_rate": 115.0,
+      "currency": "CHF",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Interlaken Area",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 60.0,
+      "single_rate": 108.0,
+      "currency": "CHF",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Interlaken Area",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 56.0,
+      "single_rate": 102.0,
+      "currency": "CHF",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Salzburg": [
+    {
+      "hotel_name": "4* hotel in Salzburg",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 99.0,
+      "single_rate": 181.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Salzburg",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 77.0,
+      "single_rate": 126.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Salzburg Area",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 88.0,
+      "single_rate": 176.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Salzburg Area",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 68.0,
+      "single_rate": 112.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Madrid": [
+    {
+      "hotel_name": "4* hotel in Madrid City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 41.0,
+      "single_rate": 75.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Madrid City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 35.0,
+      "single_rate": 63.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Madrid Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 36.0,
+      "single_rate": 66.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Madrid Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 31.0,
+      "single_rate": 56.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Florence": [
+    {
+      "hotel_name": "4* hotel in Florence",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 65.0,
+      "single_rate": 121.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Florence Area",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 58.0,
+      "single_rate": 108.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Vienna": [
+    {
+      "hotel_name": "4* hotel in Vienna City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 64.0,
+      "single_rate": 121.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Vienna City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 54.0,
+      "single_rate": 99.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Vienna Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 49.0,
+      "single_rate": 88.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Vienna Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 45.0,
+      "single_rate": 74.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Berlin": [
+    {
+      "hotel_name": "4* hotel in Berlin City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 36.0,
+      "single_rate": 65.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Berlin City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 31.0,
+      "single_rate": 56.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Berlin Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 32.0,
+      "single_rate": 58.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Berlin Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 27.0,
+      "single_rate": 50.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Prague": [
+    {
+      "hotel_name": "4* hotel in Prague City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 67.0,
+      "single_rate": 121.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Prague City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 56.0,
+      "single_rate": 110.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Prague Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 59.0,
+      "single_rate": 108.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Prague Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 50.0,
+      "single_rate": 98.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Rotterdam": [
+    {
+      "hotel_name": "3* hotel in Rotterdam",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 65.0,
+      "single_rate": 120.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Eindhoven": [
+    {
+      "hotel_name": "4* hotel in Eindhoven",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 61.0,
+      "single_rate": 111.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Windsor": [
+    {
+      "hotel_name": "4* hotel in Windsor",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 43.0,
+      "single_rate": 75.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Windsor",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 40.0,
+      "single_rate": 70.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Windsor Area",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 43.0,
+      "single_rate": 75.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Windsor Area",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 40.0,
+      "single_rate": 70.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Lisbon": [
+    {
+      "hotel_name": "4* hotel in Lisbon City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 45.0,
+      "single_rate": 81.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Lisbon City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 39.0,
+      "single_rate": 72.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Lisbon Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 40.0,
+      "single_rate": 72.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Lisbon Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 35.0,
+      "single_rate": 64.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Budapest": [
+    {
+      "hotel_name": "4* hotel in Budapest City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 32.0,
+      "single_rate": 54.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Budapest City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 27.0,
+      "single_rate": 50.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Budapest Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 28.0,
+      "single_rate": 48.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Budapest Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 24.0,
+      "single_rate": 44.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Frankfurt": [
+    {
+      "hotel_name": "4* hotel in Frankfurt City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 34.0,
+      "single_rate": 61.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Frankfurt City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 31.0,
+      "single_rate": 57.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Frankfurt Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 30.0,
+      "single_rate": 54.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Frankfurt Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 27.0,
+      "single_rate": 50.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Milan": [
+    {
+      "hotel_name": "4* hotel in Milan City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 54.0,
+      "single_rate": 99.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Milan City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 34.0,
+      "single_rate": 61.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Milan Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 48.0,
+      "single_rate": 88.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Milan Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 30.0,
+      "single_rate": 54.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Geneva": [
+    {
+      "hotel_name": "4* hotel in Geneva City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 63.0,
+      "single_rate": 115.0,
+      "currency": "CHF",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Geneva City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 47.0,
+      "single_rate": 81.0,
+      "currency": "CHF",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Geneva Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 56.0,
+      "single_rate": 102.0,
+      "currency": "CHF",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Geneva Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 42.0,
+      "single_rate": 72.0,
+      "currency": "CHF",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Helsinki": [
+    {
+      "hotel_name": "4* hotel in Helsinki City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 42.0,
+      "single_rate": 77.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Helsinki City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 34.0,
+      "single_rate": 63.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Helsinki Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 38.0,
+      "single_rate": 68.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Helsinki Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 30.0,
+      "single_rate": 56.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Athens": [
+    {
+      "hotel_name": "4* hotel in Athens City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 57.0,
+      "single_rate": 90.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Athens City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 35.0,
+      "single_rate": 61.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Athens Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 50.0,
+      "single_rate": 80.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Athens Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 31.0,
+      "single_rate": 54.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Stockholm": [
+    {
+      "hotel_name": "4* hotel in Stockholm City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 83.0,
+      "single_rate": 149.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Stockholm City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 64.0,
+      "single_rate": 118.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Stockholm Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 74.0,
+      "single_rate": 132.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Stockholm Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 57.0,
+      "single_rate": 105.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Glasgow": [
+    {
+      "hotel_name": "4* hotel in Glasgow City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 38.0,
+      "single_rate": 69.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Glasgow City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 31.0,
+      "single_rate": 55.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Glasgow Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 34.0,
+      "single_rate": 62.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Glasgow Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 27.0,
+      "single_rate": 49.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Oslo": [
+    {
+      "hotel_name": "4* hotel in Oslo City Center",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 69.0,
+      "single_rate": 128.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Oslo City Center",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 57.0,
+      "single_rate": 99.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Oslo Outskirts",
+      "stars": 4,
+      "location_type": "outskirts",
+      "twin_rate": 61.0,
+      "single_rate": 114.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Oslo Outskirts",
+      "stars": 3,
+      "location_type": "outskirts",
+      "twin_rate": 51.0,
+      "single_rate": 88.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ],
+  "Inverness": [
+    {
+      "hotel_name": "4* hotel in Inverness",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 65.0,
+      "single_rate": 115.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Inverness",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 35.0,
+      "single_rate": 63.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "4* hotel in Inverness Area",
+      "stars": 4,
+      "location_type": "city_center",
+      "twin_rate": 57.0,
+      "single_rate": 102.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    },
+    {
+      "hotel_name": "3* hotel in Inverness Area",
+      "stars": 3,
+      "location_type": "city_center",
+      "twin_rate": 32.0,
+      "single_rate": 56.0,
+      "currency": "GBP",
+      "season": "",
+      "date_from": "01/01/2026",
+      "date_to": "31/12/2026"
+    }
+  ]
+}
