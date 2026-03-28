@@ -179,7 +179,16 @@ window.CITY_COUNTRY = {
   athens:"greece",luxembourg:"luxembourg",bratislava:"slovakia",
   ljubljana:"slovenia",bucharest:"romania",sofia:"bulgaria"
 };
-
+async function loadRates() {
+  const files = ["pg_coach","pg_guide","pg_tm","local_transport","pp_rates","hotel_rates"];
+  const loaded = {};
+  await Promise.all(files.map(async name => {
+    const res = await fetch("data/" + name + ".json");
+    if (!res.ok) throw new Error("Failed: " + name + ".json");
+    loaded[name] = await res.json();
+  }));
+  RATES = loaded;
+}
 loadRates()
   .then(()  => setStatus("✓ Rate data loaded — ready", "ok"))
   .catch(e  => setStatus("⚠ " + e.message, "err"));
