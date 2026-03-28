@@ -1,9 +1,9 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// PARSER.JS — Gemini 2.0 Flash via Google AI Studio (free tier)
+// PARSER.JS — GPT-4o mini via GitHub Models (free)
 // ─────────────────────────────────────────────────────────────────────────────
 
-const GEMINI_API_KEY = "AIzaSyA6lCx8Mu-Aj0LMUomVH22_kGuH3utgPqY";
-const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + GEMINI_API_KEY;
+const GITHUB_TOKEN = "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";
+const GITHUB_MODELS_URL = "https://models.inference.ai.azure.com/chat/completions";
 
 const CITY_COUNTRY = {
   london:"uk",edinburgh:"uk",glasgow:"uk",manchester:"uk",birmingham:"uk",
@@ -65,25 +65,25 @@ function detectMarket(text) {
     ? "Indian" : "Non-Indian";
 }
 
-// ── Gemini system prompt ──────────────────────────────────────────────────────
+// ── System prompt ─────────────────────────────────────────────────────────────
 const SYSTEM_PROMPT = `You are a travel lead parser for Europe Incoming, a European tour operator. Extract structured data from travel agent lead emails and return ONLY valid JSON with no markdown, no code fences, no explanation.
 
 CRITICAL RULES:
 - "Tours: Yes" or "Tours: tours" = client wants sightseeing/activities. NOT a city name. Set wants_sightseeing: true.
-- "X days" means nights = X - 1. Example: "7 days" = 6 nights. "X nights" = X nights exactly.
+- "X days" means nights = X - 1. Example: "7 days" = 6 nights. "max 7 days" = 6 nights. "X nights" = X nights exactly.
 - "3rd week of July" = set start_date to approx Monday of that week e.g. 2025-07-14.
 - group_size = number of ADULTS only. Note children count separately in "children" field.
 - If destination is a country (e.g. "Switzerland"), infer main tourist cities (e.g. ["Zurich","Lucerne","Interlaken"]).
 - market: "Indian" if .in domain, mentions India/Indian company/Indian city. Otherwise "Non-Indian".
 - offer_currency: "CHF" if Switzerland only. "GBP" if UK/Ireland only. "EUR" for everything else or multi-country.
-- wants_airport_transfer: true if "Airport Transfers: Yes" or similar.
+- wants_airport_transfer: true if "Airport Transfers: Yes" or similar mentioned.
 - has_tour_manager: true ONLY if "tour manager" or "tour leader" explicitly mentioned.
 - hotel_category: extract star rating if mentioned, default "4*".
-- For vague leads (no day-by-day itinerary) set lead_type "vague". For detailed day-by-day set "explicit".
+- lead_type: "vague" for general requests, "explicit" for day-by-day itineraries.
 - agency_name: extract from email signature or From field.
-- special_notes: capture board type, room type, budget info, airline, or anything else relevant.
+- special_notes: capture board type, room type, budget info, airline, number of rooms, or anything else relevant.
 
-Return ONLY this JSON, no other text:
+Return ONLY this JSON structure, nothing else:
 {
   "cities": ["Title Case city names"],
   "countries": ["lowercase country names"],
@@ -106,128 +106,112 @@ Return ONLY this JSON, no other text:
   ]
 }`;
 
-// ── Call Gemini API ───────────────────────────────────────────────────────────
-async function parseWithGemini(emailText) {
-  const body = {
-    contents: [{
-      parts: [{
-        text: SYSTEM_PROMPT + "\n\nParse this travel lead email:\n\n" + emailText
-      }]
-    }],
-    generationConfig: {
-      temperature: 0.1,
-      maxOutputTokens: 1024
-    }
-  };
-
-  const res = await fetch(GEMINI_URL, {
+// ── Call GPT-4o mini via GitHub Models ────────────────────────────────────────
+async function parseWithAI(emailText) {
+  const res = await fetch(GITHUB_MODELS_URL, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body)
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": "Bearer " + GITHUB_TOKEN
+    },
+    body: JSON.stringify({
+      model: "gpt-4o-mini",
+      temperature: 0.1,
+      max_tokens: 1000,
+      messages: [
+        { role: "system", content: SYSTEM_PROMPT },
+        { role: "user",   content: "Parse this travel lead email:\n\n" + emailText }
+      ]
+    })
   });
 
   if (!res.ok) {
     const err = await res.text();
-    throw new Error("Gemini API error " + res.status + ": " + err.slice(0, 200));
+    throw new Error("API error " + res.status + ": " + err.slice(0, 150));
   }
 
   const data = await res.json();
-  const raw = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
-  // Strip any accidental markdown fences
+  const raw  = data.choices?.[0]?.message?.content || "";
   const clean = raw.replace(/```json\n?/g,"").replace(/```\n?/g,"").trim();
   return JSON.parse(clean);
 }
 
 // ── Rule-based fallback ───────────────────────────────────────────────────────
 function parseRuleBased(emailText) {
-  const text = emailText;
+  const text  = emailText;
   const flags = [];
 
-  // Strip "Tours: Yes/No" before city detection to avoid "tours" being picked up as Tours, France
+  // Strip "Tours: Yes/No" before city detection
   const cleanedForCities = text.replace(/\btours?\s*:\s*(yes|no|tours?)\b/gi, "");
 
-  const cities = [];
+  const cities  = [];
   const usedPos = new Set();
   const cityList = Object.keys(CITY_COUNTRY).sort((a,b) => b.length - a.length);
   for (const city of cityList) {
     const idx = cleanedForCities.toLowerCase().indexOf(city);
     if (idx === -1) continue;
     const before = idx > 0 ? cleanedForCities[idx-1] : " ";
-    const after  = idx + city.length < cleanedForCities.length ? cleanedForCities[idx+city.length] : " ";
+    const after  = idx+city.length < cleanedForCities.length ? cleanedForCities[idx+city.length] : " ";
     if (/[a-z]/i.test(before) || /[a-z]/i.test(after)) continue;
     let overlap = false;
-    for (let i = idx; i < idx+city.length; i++) { if (usedPos.has(i)) { overlap=true; break; } }
+    for (let i=idx; i<idx+city.length; i++) { if (usedPos.has(i)) { overlap=true; break; } }
     if (overlap) continue;
-    for (let i = idx; i < idx+city.length; i++) usedPos.add(i);
+    for (let i=idx; i<idx+city.length; i++) usedPos.add(i);
     cities.push(city.replace(/\b\w/g, c => c.toUpperCase()));
   }
 
-  // Countries
   const countries = new Set();
   for (const [alias, canonical] of Object.entries(COUNTRY_ALIASES)) {
-    if (new RegExp("\\b" + alias.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + "\\b", "i").test(text))
+    if (new RegExp("\\b"+alias.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+"\\b","i").test(text))
       countries.add(canonical);
   }
-  for (const city of cities) {
-    const c = CITY_COUNTRY[city.toLowerCase()]; if (c) countries.add(c);
-  }
+  for (const city of cities) { const c=CITY_COUNTRY[city.toLowerCase()]; if(c) countries.add(c); }
 
-  // Pax — adults only
-  const paxM = text.match(/(\d+)\s*adults?/i) || text.match(/(\d+)\s*pax/i) || text.match(/(\d+)\s*passengers?/i);
-  const pax = paxM ? parseInt(paxM[1]) : null;
-  const childM = text.match(/(\d+)\s*children/i);
+  const paxM     = text.match(/(\d+)\s*adults?/i) || text.match(/(\d+)\s*pax/i) || text.match(/(\d+)\s*passengers?/i);
+  const pax      = paxM ? parseInt(paxM[1]) : null;
+  const childM   = text.match(/(\d+)\s*children/i);
   const children = childM ? parseInt(childM[1]) : null;
 
-  // Nights — handle both "X nights" and "X days"
   const nightsM = text.match(/(\d+)\s*nights?/i);
   const daysM   = text.match(/\bmax\s+(\d+)\s*days?\b/i) || text.match(/(\d+)\s*days?\b/i);
-  let nights = nightsM ? parseInt(nightsM[1]) : (daysM ? parseInt(daysM[1]) - 1 : null);
+  let nights    = nightsM ? parseInt(nightsM[1]) : (daysM ? parseInt(daysM[1])-1 : null);
   if (nights !== null && nights < 1) nights = 1;
 
-  // Dates
   const dates = [];
-  const dateRe = [
-    { re:/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})/g, fn:m=>new Date(+m[3],+m[2]-1,+m[1]) },
-    { re:/(\d{4})-(\d{2})-(\d{2})/g,                fn:m=>new Date(+m[1],+m[2]-1,+m[3]) }
-  ];
-  for (const {re,fn} of dateRe) {
-    let m; while((m=re.exec(text))!==null){const d=fn(m);if(!isNaN(d)&&d.getFullYear()>=2025)dates.push(d);}
-  }
+  [{re:/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})/g,fn:m=>new Date(+m[3],+m[2]-1,+m[1])},
+   {re:/(\d{4})-(\d{2})-(\d{2})/g,fn:m=>new Date(+m[1],+m[2]-1,+m[3])}
+  ].forEach(({re,fn})=>{ let m; while((m=re.exec(text))!==null){const d=fn(m);if(!isNaN(d)&&d.getFullYear()>=2025)dates.push(d);} });
   dates.sort((a,b)=>a-b);
   const startDate = dates[0] ? formatDate(dates[0]) : null;
   const endDate   = dates.length>1 ? formatDate(dates[dates.length-1]) : null;
 
-  const countriesArr = [...countries];
-  const market = detectMarket(text);
-  const offerCurrency = determineCurrency(countriesArr);
+  const countriesArr    = [...countries];
+  const market          = detectMarket(text);
+  const offerCurrency   = determineCurrency(countriesArr);
   const wantsSightseeing = /\btours?\s*:\s*yes|\bsightseeing\b|\bactivities\b|\battractions\b/i.test(text);
-  const hasTM = /tour.?manager|tour.?leader/i.test(text);
-  const wantsTransfer = /airport.?transfer|transfer.?airport/i.test(text);
+  const hasTM           = /tour.?manager|tour.?leader/i.test(text);
+  const wantsTransfer   = /airport.?transfer|transfer.?airport/i.test(text);
 
   const services = [];
-  if (wantsTransfer) services.push({type:"MTC", name:"Airport Transfer", destination:cities[0]||""});
-  if (/coach.at.disposal|touring.coach/i.test(text)) services.push({type:"MTC", name:"Coach at disposal", destination:cities[0]||""});
-  if (hasTM) services.push({type:"GUI", name:"Tour Manager", destination:cities[0]||""});
-  if (wantsSightseeing) {
-    for (const city of cities) services.push({type:"GUI", name:"City sightseeing tour", destination:city});
-  }
+  if (wantsTransfer)    services.push({type:"MTC",name:"Airport Transfer",destination:cities[0]||""});
+  if (/coach.at.disposal/i.test(text)) services.push({type:"MTC",name:"Coach at disposal",destination:cities[0]||""});
+  if (hasTM)            services.push({type:"GUI",name:"Tour Manager",destination:cities[0]||""});
+  if (wantsSightseeing) { for (const city of cities) services.push({type:"GUI",name:"City sightseeing tour",destination:city}); }
 
-  if (!pax)          flags.push("⚠ Group size not found — using bracket pricing");
-  if (!startDate)    flags.push("⚠ Travel dates not found — hotel seasonal pricing may vary");
-  if (!cities.length)flags.push("⚠ No cities detected — please enter cities manually");
-  if (nights===null) flags.push("⚠ Nights not found — estimated from city count");
+  if (!pax)           flags.push("⚠ Group size not found — using bracket pricing");
+  if (!startDate)     flags.push("⚠ Travel dates not found — hotel seasonal pricing may vary");
+  if (!cities.length) flags.push("⚠ No cities detected — please enter cities manually");
+  if (nights===null)  flags.push("⚠ Nights not found — estimated from city count");
 
   return {
     cities, countries: countriesArr,
     nights: nights||(cities.length||1), days:(nights||(cities.length||1))+1,
-    pax, children, startDate, endDate,
-    market, offerCurrency,
+    pax, children, startDate, endDate, market, offerCurrency,
     hasTM, wantsSightseeing, wantsTransfer,
     hotelCategory:"4*", leadType:"vague",
     agencyName:"Unknown Agency", specialNotes:"",
     program: buildProgram(cities, nights||(cities.length||1), startDate, services, wantsSightseeing),
-    services, flags,
-    parseMethod:"rule-based"
+    services, flags, parseMethod:"rule-based"
   };
 }
 
@@ -237,23 +221,21 @@ function buildProgram(cities, nights, startDate, services, wantsSightseeing) {
   const program = [];
   let dayNum = 1;
   let cur = startDate ? new Date(startDate) : null;
-  const advance = () => { const d = cur ? formatDate(cur) : null; if(cur) cur=new Date(cur.getTime()+86400000); return d; };
-  const nightsEach = Math.max(1, Math.floor(nights / cities.length));
+  const advance = () => { const d=cur?formatDate(cur):null; if(cur)cur=new Date(cur.getTime()+86400000); return d; };
+  const nightsEach = Math.max(1, Math.floor(nights/cities.length));
 
-  cities.forEach((city, ci) => {
-    const stay = ci===cities.length-1 ? Math.max(1, nights-nightsEach*ci) : nightsEach;
+  cities.forEach((city,ci) => {
+    const stay = ci===cities.length-1 ? Math.max(1,nights-nightsEach*ci) : nightsEach;
     for (let n=0; n<stay; n++) {
-      const svcs = [{type:"MTC", name:"Coach at disposal", destination:city}];
-      if (n===0 && wantsSightseeing) svcs.push({type:"GUI", name:"City sightseeing tour", destination:city});
-      program.push({day:dayNum++, date:advance(), city, overnight:city, services:svcs});
+      const svcs = [{type:"MTC",name:"Coach at disposal",destination:city}];
+      if (n===0&&wantsSightseeing) svcs.push({type:"GUI",name:"City sightseeing tour",destination:city});
+      program.push({day:dayNum++,date:advance(),city,overnight:city,services:svcs});
     }
-    if (ci < cities.length-1) {
-      program.push({day:dayNum++, date:advance(), city, overnight:cities[ci+1],
+    if (ci<cities.length-1)
+      program.push({day:dayNum++,date:advance(),city,overnight:cities[ci+1],
         services:[{type:"MTC",name:"Coach at disposal",destination:city}]});
-    }
   });
-
-  program.push({day:dayNum, date:advance(), city:cities[cities.length-1], overnight:null,
+  program.push({day:dayNum,date:advance(),city:cities[cities.length-1],overnight:null,
     services:[{type:"MTC",name:"Departure Transfer",destination:cities[cities.length-1]}]});
   return program;
 }
@@ -265,56 +247,50 @@ function formatDate(d) {
 
 // ── Main entry point ──────────────────────────────────────────────────────────
 async function parseEmail(emailText) {
-  // Try Gemini if key is set
-  if (GEMINI_API_KEY && GEMINI_API_KEY !== "PASTE_YOUR_KEY_HERE") {
+  if (GITHUB_TOKEN && GITHUB_TOKEN !== "PASTE_YOUR_GITHUB_TOKEN_HERE") {
     try {
-      const ai = await parseWithGemini(emailText);
-      const cities    = ai.cities    || [];
-      const countries = ai.countries || [];
-      const nights    = ai.nights    || Math.max(cities.length, 1);
-      const services  = ai.services  || [];
+      const ai = await parseWithAI(emailText);
+      const cities   = ai.cities   || [];
+      const countries= ai.countries|| [];
+      const nights   = ai.nights   || Math.max(cities.length,1);
+      const services = ai.services || [];
 
-      // Auto-add services from AI flags if not already in services array
       if (ai.wants_airport_transfer && !services.find(s=>/transfer/i.test(s.name)))
-        services.unshift({type:"MTC", name:"Airport Transfer", destination:cities[0]||""});
+        services.unshift({type:"MTC",name:"Airport Transfer",destination:cities[0]||""});
       if (ai.wants_sightseeing) {
-        for (const city of cities) {
+        for (const city of cities)
           if (!services.find(s=>s.type==="GUI"&&s.destination===city&&/sightseeing|tour/i.test(s.name)))
-            services.push({type:"GUI", name:"City sightseeing tour", destination:city});
-        }
+            services.push({type:"GUI",name:"City sightseeing tour",destination:city});
       }
       if (ai.has_tour_manager && !services.find(s=>/tour.?manager/i.test(s.name)))
-        services.unshift({type:"GUI", name:"Tour Manager", destination:cities[0]||""});
+        services.unshift({type:"GUI",name:"Tour Manager",destination:cities[0]||""});
 
       return {
         cities, countries,
         nights, days: nights+1,
-        pax:           ai.pax            || null,
-        children:      ai.children       || null,
-        startDate:     ai.start_date     || null,
-        endDate:       ai.end_date       || null,
-        market:        ai.market         || detectMarket(emailText),
-        offerCurrency: ai.offer_currency || determineCurrency(countries),
-        hasTM:         ai.has_tour_manager   || false,
+        pax:           ai.pax                  || null,
+        children:      ai.children             || null,
+        startDate:     ai.start_date           || null,
+        endDate:       ai.end_date             || null,
+        market:        ai.market               || detectMarket(emailText),
+        offerCurrency: ai.offer_currency       || determineCurrency(countries),
+        hasTM:         ai.has_tour_manager     || false,
         wantsSightseeing: ai.wants_sightseeing || false,
         wantsTransfer: ai.wants_airport_transfer || false,
-        hotelCategory: ai.hotel_category || "4*",
-        leadType:      ai.lead_type      || "vague",
-        agencyName:    ai.agency_name    || "Unknown Agency",
-        specialNotes:  ai.special_notes  || "",
+        hotelCategory: ai.hotel_category       || "4*",
+        leadType:      ai.lead_type            || "vague",
+        agencyName:    ai.agency_name          || "Unknown Agency",
+        specialNotes:  ai.special_notes        || "",
         program: buildProgram(cities, nights, ai.start_date, services, ai.wants_sightseeing),
-        services, flags: [],
-        parseMethod: "gemini"
+        services, flags: [], parseMethod:"ai"
       };
     } catch(err) {
-      console.warn("Gemini parse failed, falling back:", err.message);
+      console.warn("AI parse failed:", err.message);
       const result = parseRuleBased(emailText);
       result.flags.unshift("⚠ AI parse failed (" + err.message.slice(0,80) + ") — used rule-based fallback");
       return result;
     }
   }
-
-  // No key — rule-based only
   return parseRuleBased(emailText);
 }
 
