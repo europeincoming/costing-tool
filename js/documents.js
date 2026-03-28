@@ -127,7 +127,7 @@ function generateClientQuote(result) {
 
 <div class="header">
   <div class="logo">
-    <img src="../assets/logo.png" alt="Europe Incoming" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <img src="../assets/EIlogo.png" alt="Europe Incoming" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
     <div style="display:none"><div class="logo-text">Europe Incoming</div><div class="logo-sub">FIT Packages</div></div>
   </div>
   <div class="ref-block">
