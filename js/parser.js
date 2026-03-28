@@ -2,7 +2,7 @@
 // PARSER.JS — Gemini 2.0 Flash via Google AI Studio (free tier)
 // ─────────────────────────────────────────────────────────────────────────────
 
-const GEMINI_API_KEY = "AIzaSyBMEp94tJ14ajoNK_WHDGJLKSnKpmhTJnM";
+const GEMINI_API_KEY = "AIzaSyA6lCx8Mu-Aj0LMUomVH22_kGuH3utgPqY";
 const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=" + GEMINI_API_KEY;
 
 const CITY_COUNTRY = {
