@@ -1,9 +1,8 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// PARSER.JS — GPT-4o mini via GitHub Models (free)
+// PARSER.JS — Smart rule-based email parser
+// No external API dependencies. Works instantly, no tokens needed.
+// When Claude/OpenAI API is approved, replace parseEmail() with AI call.
 // ─────────────────────────────────────────────────────────────────────────────
-
-const GITHUB_TOKEN = "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";
-const GITHUB_MODELS_URL = "https://models.inference.ai.azure.com/chat/completions";
 
 const CITY_COUNTRY = {
   london:"uk",edinburgh:"uk",glasgow:"uk",manchester:"uk",birmingham:"uk",
@@ -11,7 +10,7 @@ const CITY_COUNTRY = {
   "stratford-upon-avon":"uk",windsor:"uk",bath:"uk",york:"uk",leeds:"uk",
   dublin:"ireland",cork:"ireland",galway:"ireland",limerick:"ireland",
   paris:"france",lyon:"france",nice:"france",marseille:"france",
-  bordeaux:"france",strasbourg:"france",tours:"france",versailles:"france",
+  bordeaux:"france",strasbourg:"france",versailles:"france",
   berlin:"germany",munich:"germany",hamburg:"germany",frankfurt:"germany",
   cologne:"germany",stuttgart:"germany",heidelberg:"germany",
   rome:"italy",milan:"italy",venice:"italy",florence:"italy",naples:"italy",
@@ -52,6 +51,19 @@ const COUNTRY_ALIASES = {
   "norway":"norway","sweden":"sweden","denmark":"denmark","finland":"finland","iceland":"iceland"
 };
 
+const COUNTRY_DEFAULT_CITIES = {
+  "switzerland":["Zurich","Lucerne","Interlaken"],
+  "uk":["London"],"england":["London"],"scotland":["Edinburgh"],
+  "ireland":["Dublin"],"france":["Paris"],"germany":["Berlin","Munich"],
+  "italy":["Rome","Florence","Venice"],"spain":["Madrid","Barcelona"],
+  "portugal":["Lisbon"],"austria":["Vienna","Salzburg"],
+  "netherlands":["Amsterdam"],"belgium":["Brussels"],
+  "czech republic":["Prague"],"hungary":["Budapest"],
+  "norway":["Oslo"],"sweden":["Stockholm"],"denmark":["Copenhagen"],
+  "finland":["Helsinki"],"iceland":["Reykjavik"],
+  "croatia":["Zagreb","Dubrovnik"],"greece":["Athens"]
+};
+
 function determineCurrency(countries) {
   if (!countries || !countries.length) return "EUR";
   const s = new Set(countries.map(c => c.toLowerCase()));
@@ -61,162 +73,104 @@ function determineCurrency(countries) {
 }
 
 function detectMarket(text) {
-  return /\.in\b|\+91|\bindia\b|\bindian\b|pvt\.?\s*ltd|private\s+limited|mumbai|delhi|bangalore|kolkata|chennai|pune|ahmedabad|hyderabad/i.test(text)
+  return /\.in\b|\+91|\bindia\b|\bindian\b|pvt\.?\s*ltd|private\s+limited|mumbai|delhi|bangalore|kolkata|chennai|pune|ahmedabad|hyderabad|dnata/i.test(text)
     ? "Indian" : "Non-Indian";
 }
 
-// ── System prompt ─────────────────────────────────────────────────────────────
-const SYSTEM_PROMPT = `You are a travel lead parser for Europe Incoming, a European tour operator. Extract structured data from travel agent lead emails and return ONLY valid JSON with no markdown, no code fences, no explanation.
+function detectCities(text) {
+  // Remove service keywords that could be mistaken for cities
+  let cleaned = text
+    .replace(/\btours?\s*:\s*\S+/gi, " ")
+    .replace(/\btour\s+(?:operator|package|manager|leader|guide)\b/gi, " ")
+    .replace(/\bno\s+of\s+rooms?\b/gi, " ")
+    .replace(/\bboard\s+type\b/gi, " ");
 
-CRITICAL RULES:
-- "Tours: Yes" or "Tours: tours" = client wants sightseeing/activities. NOT a city name. Set wants_sightseeing: true.
-- "X days" means nights = X - 1. Example: "7 days" = 6 nights. "max 7 days" = 6 nights. "X nights" = X nights exactly.
-- "3rd week of July" = set start_date to approx Monday of that week e.g. 2025-07-14.
-- group_size = number of ADULTS only. Note children count separately in "children" field.
-- If destination is a country (e.g. "Switzerland"), infer main tourist cities (e.g. ["Zurich","Lucerne","Interlaken"]).
-- market: "Indian" if .in domain, mentions India/Indian company/Indian city. Otherwise "Non-Indian".
-- offer_currency: "CHF" if Switzerland only. "GBP" if UK/Ireland only. "EUR" for everything else or multi-country.
-- wants_airport_transfer: true if "Airport Transfers: Yes" or similar mentioned.
-- has_tour_manager: true ONLY if "tour manager" or "tour leader" explicitly mentioned.
-- hotel_category: extract star rating if mentioned, default "4*".
-- lead_type: "vague" for general requests, "explicit" for day-by-day itineraries.
-- agency_name: extract from email signature or From field.
-- special_notes: capture board type, room type, budget info, airline, number of rooms, or anything else relevant.
-
-Return ONLY this JSON structure, nothing else:
-{
-  "cities": ["Title Case city names"],
-  "countries": ["lowercase country names"],
-  "nights": number or null,
-  "pax": number or null,
-  "children": number or null,
-  "start_date": "YYYY-MM-DD" or null,
-  "end_date": "YYYY-MM-DD" or null,
-  "market": "Indian" or "Non-Indian",
-  "offer_currency": "EUR" or "GBP" or "CHF",
-  "has_tour_manager": false,
-  "wants_sightseeing": false,
-  "wants_airport_transfer": false,
-  "hotel_category": "4*",
-  "lead_type": "vague",
-  "agency_name": "string",
-  "special_notes": "string",
-  "services": [
-    {"type": "MTC or GUI or ENT or RST or FRY", "name": "service name", "destination": "city"}
-  ]
-}`;
-
-// ── Call GPT-4o mini via GitHub Models ────────────────────────────────────────
-async function parseWithAI(emailText) {
-  const res = await fetch(GITHUB_MODELS_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer " + GITHUB_TOKEN
-    },
-    body: JSON.stringify({
-      model: "gpt-4o-mini",
-      temperature: 0.1,
-      max_tokens: 1000,
-      messages: [
-        { role: "system", content: SYSTEM_PROMPT },
-        { role: "user",   content: "Parse this travel lead email:\n\n" + emailText }
-      ]
-    })
-  });
-
-  if (!res.ok) {
-    const err = await res.text();
-    throw new Error("API error " + res.status + ": " + err.slice(0, 150));
-  }
-
-  const data = await res.json();
-  const raw  = data.choices?.[0]?.message?.content || "";
-  const clean = raw.replace(/```json\n?/g,"").replace(/```\n?/g,"").trim();
-  return JSON.parse(clean);
-}
-
-// ── Rule-based fallback ───────────────────────────────────────────────────────
-function parseRuleBased(emailText) {
-  const text  = emailText;
-  const flags = [];
-
-  // Strip "Tours: Yes/No" before city detection
-  const cleanedForCities = text.replace(/\btours?\s*:\s*(yes|no|tours?)\b/gi, "");
-
-  const cities  = [];
+  const cities = [];
   const usedPos = new Set();
   const cityList = Object.keys(CITY_COUNTRY).sort((a,b) => b.length - a.length);
+
   for (const city of cityList) {
-    const idx = cleanedForCities.toLowerCase().indexOf(city);
+    const idx = cleaned.toLowerCase().indexOf(city);
     if (idx === -1) continue;
-    const before = idx > 0 ? cleanedForCities[idx-1] : " ";
-    const after  = idx+city.length < cleanedForCities.length ? cleanedForCities[idx+city.length] : " ";
+    const before = idx > 0 ? cleaned[idx-1] : " ";
+    const after  = idx+city.length < cleaned.length ? cleaned[idx+city.length] : " ";
     if (/[a-z]/i.test(before) || /[a-z]/i.test(after)) continue;
     let overlap = false;
     for (let i=idx; i<idx+city.length; i++) { if (usedPos.has(i)) { overlap=true; break; } }
     if (overlap) continue;
     for (let i=idx; i<idx+city.length; i++) usedPos.add(i);
-    cities.push(city.replace(/\b\w/g, c => c.toUpperCase()));
+    cities.push({ name: city.replace(/\b\w/g, c => c.toUpperCase()), index: idx });
   }
-
-  const countries = new Set();
-  for (const [alias, canonical] of Object.entries(COUNTRY_ALIASES)) {
-    if (new RegExp("\\b"+alias.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+"\\b","i").test(text))
-      countries.add(canonical);
-  }
-  for (const city of cities) { const c=CITY_COUNTRY[city.toLowerCase()]; if(c) countries.add(c); }
-
-  const paxM     = text.match(/(\d+)\s*adults?/i) || text.match(/(\d+)\s*pax/i) || text.match(/(\d+)\s*passengers?/i);
-  const pax      = paxM ? parseInt(paxM[1]) : null;
-  const childM   = text.match(/(\d+)\s*children/i);
-  const children = childM ? parseInt(childM[1]) : null;
-
-  const nightsM = text.match(/(\d+)\s*nights?/i);
-  const daysM   = text.match(/\bmax\s+(\d+)\s*days?\b/i) || text.match(/(\d+)\s*days?\b/i);
-  let nights    = nightsM ? parseInt(nightsM[1]) : (daysM ? parseInt(daysM[1])-1 : null);
-  if (nights !== null && nights < 1) nights = 1;
-
-  const dates = [];
-  [{re:/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})/g,fn:m=>new Date(+m[3],+m[2]-1,+m[1])},
-   {re:/(\d{4})-(\d{2})-(\d{2})/g,fn:m=>new Date(+m[1],+m[2]-1,+m[3])}
-  ].forEach(({re,fn})=>{ let m; while((m=re.exec(text))!==null){const d=fn(m);if(!isNaN(d)&&d.getFullYear()>=2025)dates.push(d);} });
-  dates.sort((a,b)=>a-b);
-  const startDate = dates[0] ? formatDate(dates[0]) : null;
-  const endDate   = dates.length>1 ? formatDate(dates[dates.length-1]) : null;
-
-  const countriesArr    = [...countries];
-  const market          = detectMarket(text);
-  const offerCurrency   = determineCurrency(countriesArr);
-  const wantsSightseeing = /\btours?\s*:\s*yes|\bsightseeing\b|\bactivities\b|\battractions\b/i.test(text);
-  const hasTM           = /tour.?manager|tour.?leader/i.test(text);
-  const wantsTransfer   = /airport.?transfer|transfer.?airport/i.test(text);
-
-  const services = [];
-  if (wantsTransfer)    services.push({type:"MTC",name:"Airport Transfer",destination:cities[0]||""});
-  if (/coach.at.disposal/i.test(text)) services.push({type:"MTC",name:"Coach at disposal",destination:cities[0]||""});
-  if (hasTM)            services.push({type:"GUI",name:"Tour Manager",destination:cities[0]||""});
-  if (wantsSightseeing) { for (const city of cities) services.push({type:"GUI",name:"City sightseeing tour",destination:city}); }
-
-  if (!pax)           flags.push("⚠ Group size not found — using bracket pricing");
-  if (!startDate)     flags.push("⚠ Travel dates not found — hotel seasonal pricing may vary");
-  if (!cities.length) flags.push("⚠ No cities detected — please enter cities manually");
-  if (nights===null)  flags.push("⚠ Nights not found — estimated from city count");
-
-  return {
-    cities, countries: countriesArr,
-    nights: nights||(cities.length||1), days:(nights||(cities.length||1))+1,
-    pax, children, startDate, endDate, market, offerCurrency,
-    hasTM, wantsSightseeing, wantsTransfer,
-    hotelCategory:"4*", leadType:"vague",
-    agencyName:"Unknown Agency", specialNotes:"",
-    program: buildProgram(cities, nights||(cities.length||1), startDate, services, wantsSightseeing),
-    services, flags, parseMethod:"rule-based"
-  };
+  cities.sort((a,b) => a.index - b.index);
+  return cities.map(c => c.name);
 }
 
-// ── Build day program ─────────────────────────────────────────────────────────
-function buildProgram(cities, nights, startDate, services, wantsSightseeing) {
+function detectCountries(text) {
+  const found = new Set();
+  for (const [alias, canonical] of Object.entries(COUNTRY_ALIASES)) {
+    if (new RegExp("\\b"+alias.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+"\\b","i").test(text))
+      found.add(canonical);
+  }
+  return [...found];
+}
+
+function extractPax(text) {
+  const patterns = [
+    /(\d+)\s*adults?/i, /(\d+)\s*pax\b/i,
+    /(\d+)\s*passengers?/i, /(\d+)\s*persons?/i,
+    /group\s+of\s+(\d+)/i
+  ];
+  for (const p of patterns) { const m = text.match(p); if (m) return parseInt(m[1]); }
+  return null;
+}
+
+function extractChildren(text) {
+  const m = text.match(/(\d+)\s*(?:children|child|kids?)/i);
+  return m ? parseInt(m[1]) : null;
+}
+
+function extractNights(text) {
+  const nightsM = text.match(/(\d+)\s*nights?/i);
+  if (nightsM) return parseInt(nightsM[1]);
+  const daysM = text.match(/(?:max\.?\s+)?(\d+)\s*days?\b/i);
+  if (daysM) return Math.max(1, parseInt(daysM[1]) - 1);
+  const weekM = text.match(/(\d+)\s*weeks?/i);
+  if (weekM) return parseInt(weekM[1]) * 7;
+  return null;
+}
+
+function extractDates(text) {
+  const dates = [];
+  const months = {jan:1,feb:2,mar:3,apr:4,may:5,jun:6,jul:7,aug:8,sep:9,oct:10,nov:11,dec:12,
+    january:1,february:2,march:3,april:4,june:6,july:7,august:8,september:9,october:10,november:11,december:12};
+
+  const patterns = [
+    { re:/(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})/g, fn:m=>new Date(+m[3],+m[2]-1,+m[1]) },
+    { re:/(\d{4})-(\d{2})-(\d{2})/g, fn:m=>new Date(+m[1],+m[2]-1,+m[3]) },
+    { re:/(\d{1,2})\s+(jan\w*|feb\w*|mar\w*|apr\w*|may|jun\w*|jul\w*|aug\w*|sep\w*|oct\w*|nov\w*|dec\w*)\s+(\d{4})/gi,
+      fn:m=>new Date(+m[3],(months[m[2].toLowerCase().slice(0,3)]||1)-1,+m[1]) },
+    { re:/(jan\w*|feb\w*|mar\w*|apr\w*|may|jun\w*|jul\w*|aug\w*|sep\w*|oct\w*|nov\w*|dec\w*)\s+(\d{1,2}),?\s+(\d{4})/gi,
+      fn:m=>new Date(+m[3],(months[m[1].toLowerCase().slice(0,3)]||1)-1,+m[2]) }
+  ];
+  for (const {re,fn} of patterns) {
+    let m; while((m=re.exec(text))!==null){try{const d=fn(m);if(!isNaN(d)&&d.getFullYear()>=2025)dates.push(d);}catch(e){}}
+  }
+
+  // Vague dates: "3rd week of July", "mid August"
+  const vagueM = text.match(/(\d+(?:st|nd|rd|th)?|first|second|third|last|mid)\s+week\s+of\s+(jan\w*|feb\w*|mar\w*|apr\w*|may|jun\w*|jul\w*|aug\w*|sep\w*|oct\w*|nov\w*|dec\w*)/i);
+  if (vagueM && !dates.length) {
+    const monthNum = months[vagueM[2].toLowerCase().slice(0,3)] || 7;
+    const weekWord = vagueM[1].toLowerCase();
+    const weekNum = {first:1,second:2,third:3,fourth:4,last:4}[weekWord] || parseInt(weekWord) || 2;
+    const year = new Date().getFullYear();
+    dates.push(new Date(year, monthNum-1, Math.min((weekNum-1)*7+1, 28)));
+  }
+
+  dates.sort((a,b)=>a-b);
+  return dates;
+}
+
+function buildProgram(cities, nights, startDate, wantsSightseeing, wantsTransfer, hasTM) {
   if (!cities.length) return [];
   const program = [];
   let dayNum = 1;
@@ -224,17 +178,22 @@ function buildProgram(cities, nights, startDate, services, wantsSightseeing) {
   const advance = () => { const d=cur?formatDate(cur):null; if(cur)cur=new Date(cur.getTime()+86400000); return d; };
   const nightsEach = Math.max(1, Math.floor(nights/cities.length));
 
-  cities.forEach((city,ci) => {
-    const stay = ci===cities.length-1 ? Math.max(1,nights-nightsEach*ci) : nightsEach;
+  cities.forEach((city, ci) => {
+    const isLast = ci === cities.length-1;
+    const stay = isLast ? Math.max(1, nights-nightsEach*ci) : nightsEach;
     for (let n=0; n<stay; n++) {
-      const svcs = [{type:"MTC",name:"Coach at disposal",destination:city}];
-      if (n===0&&wantsSightseeing) svcs.push({type:"GUI",name:"City sightseeing tour",destination:city});
+      const svcs = [];
+      if (n===0 && wantsTransfer && ci===0) svcs.push({type:"MTC",name:"Airport Arrival Transfer",destination:city});
+      svcs.push({type:"MTC",name:"Coach at disposal",destination:city});
+      if (n===0 && hasTM) svcs.push({type:"GUI",name:"Tour Manager",destination:city});
+      if (n===0 && wantsSightseeing) svcs.push({type:"GUI",name:"City sightseeing tour",destination:city});
       program.push({day:dayNum++,date:advance(),city,overnight:city,services:svcs});
     }
-    if (ci<cities.length-1)
+    if (!isLast)
       program.push({day:dayNum++,date:advance(),city,overnight:cities[ci+1],
         services:[{type:"MTC",name:"Coach at disposal",destination:city}]});
   });
+
   program.push({day:dayNum,date:advance(),city:cities[cities.length-1],overnight:null,
     services:[{type:"MTC",name:"Departure Transfer",destination:cities[cities.length-1]}]});
   return program;
@@ -245,53 +204,84 @@ function formatDate(d) {
   return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
 }
 
-// ── Main entry point ──────────────────────────────────────────────────────────
 async function parseEmail(emailText) {
-  if (GITHUB_TOKEN && GITHUB_TOKEN !== "PASTE_YOUR_GITHUB_TOKEN_HERE") {
-    try {
-      const ai = await parseWithAI(emailText);
-      const cities   = ai.cities   || [];
-      const countries= ai.countries|| [];
-      const nights   = ai.nights   || Math.max(cities.length,1);
-      const services = ai.services || [];
+  const text = emailText || "";
+  const flags = [];
 
-      if (ai.wants_airport_transfer && !services.find(s=>/transfer/i.test(s.name)))
-        services.unshift({type:"MTC",name:"Airport Transfer",destination:cities[0]||""});
-      if (ai.wants_sightseeing) {
-        for (const city of cities)
-          if (!services.find(s=>s.type==="GUI"&&s.destination===city&&/sightseeing|tour/i.test(s.name)))
-            services.push({type:"GUI",name:"City sightseeing tour",destination:city});
-      }
-      if (ai.has_tour_manager && !services.find(s=>/tour.?manager/i.test(s.name)))
-        services.unshift({type:"GUI",name:"Tour Manager",destination:cities[0]||""});
+  let cities    = detectCities(text);
+  let countries = detectCountries(text);
 
-      return {
-        cities, countries,
-        nights, days: nights+1,
-        pax:           ai.pax                  || null,
-        children:      ai.children             || null,
-        startDate:     ai.start_date           || null,
-        endDate:       ai.end_date             || null,
-        market:        ai.market               || detectMarket(emailText),
-        offerCurrency: ai.offer_currency       || determineCurrency(countries),
-        hasTM:         ai.has_tour_manager     || false,
-        wantsSightseeing: ai.wants_sightseeing || false,
-        wantsTransfer: ai.wants_airport_transfer || false,
-        hotelCategory: ai.hotel_category       || "4*",
-        leadType:      ai.lead_type            || "vague",
-        agencyName:    ai.agency_name          || "Unknown Agency",
-        specialNotes:  ai.special_notes        || "",
-        program: buildProgram(cities, nights, ai.start_date, services, ai.wants_sightseeing),
-        services, flags: [], parseMethod:"ai"
-      };
-    } catch(err) {
-      console.warn("AI parse failed:", err.message);
-      const result = parseRuleBased(emailText);
-      result.flags.unshift("⚠ AI parse failed (" + err.message.slice(0,80) + ") — used rule-based fallback");
-      return result;
+  // Infer cities from country if none found
+  if (!cities.length && countries.length) {
+    for (const c of countries) {
+      const defaults = COUNTRY_DEFAULT_CITIES[c];
+      if (defaults) cities = [...cities, ...defaults];
     }
+    if (cities.length) flags.push("ℹ Cities inferred from country — verify in Override fields");
   }
-  return parseRuleBased(emailText);
+
+  // Infer countries from cities
+  if (!countries.length && cities.length) {
+    const inferred = new Set();
+    for (const city of cities) { const c=CITY_COUNTRY[city.toLowerCase()]; if(c) inferred.add(c); }
+    countries = [...inferred];
+  }
+
+  const pax        = extractPax(text);
+  const children   = extractChildren(text);
+  const nights     = extractNights(text);
+  const dates      = extractDates(text);
+  const startDate  = dates[0] ? formatDate(dates[0]) : null;
+  const endDate    = dates.length>1 ? formatDate(dates[dates.length-1]) : null;
+  const market     = detectMarket(text);
+  const offerCurrency = determineCurrency(countries);
+
+  const hotelM  = text.match(/(\d)\s*\*\s*(?:hotel|star)?/i) || text.match(/(\d)\s*star/i);
+  const hotelCat = hotelM ? hotelM[1]+"*" : "4*";
+
+  const fromM = text.match(/^from[:\s]+([^\n<]+)/im);
+  const agencyName = fromM ? fromM[1].trim().replace(/\s*<.*>/,"") : "Unknown Agency";
+
+  const wantsSightseeing = /\btours?\s*:\s*yes\b|\bsightseeing\b|\bactivities\b|\battractions\b|\bexcursions?\b/i.test(text);
+  const wantsTransfer    = /airport\s*transfers?\s*:\s*yes|\btransfer\b.*\bairport\b|\barrival\s*transfer\b/i.test(text);
+  const hasTM            = /\btour\s*manager\b|\btour\s*leader\b/i.test(text);
+
+  // Special notes extraction
+  const boardM  = text.match(/board\s*(?:type|basis)?\s*:\s*([^\n,]+)/i);
+  const budgetM = text.match(/(?:budget|allocation)[:\s]+([^\n]+)/i);
+  const airlineM= text.match(/(?:airlines?|flight)[:\s]+([^\n]+)/i);
+  const roomsM  = text.match(/(?:no\.?\s*of\s*rooms?|rooms?)\s*:\s*([^\n,]+)/i);
+  const specialNotes = [
+    boardM   ? "Board: "+boardM[1].trim()    : null,
+    roomsM   ? "Rooms: "+roomsM[1].trim()    : null,
+    budgetM  ? "Budget: "+budgetM[1].trim()  : null,
+    airlineM ? "Airline: "+airlineM[1].trim(): null,
+  ].filter(Boolean).join(" · ");
+
+  const services = [];
+  if (wantsTransfer) services.push({type:"MTC",name:"Airport Transfer",destination:cities[0]||""});
+  else if (cities.length) services.push({type:"MTC",name:"Coach at disposal",destination:cities[0]||""});
+  if (hasTM) services.push({type:"GUI",name:"Tour Manager",destination:cities[0]||""});
+  if (wantsSightseeing) for (const city of cities) services.push({type:"GUI",name:"City sightseeing tour",destination:city});
+
+  if (!pax)           flags.push("⚠ Group size not found — bracket pricing will be used");
+  if (!startDate)     flags.push("⚠ Travel dates not found — hotel seasonal pricing may vary");
+  if (!cities.length) flags.push("⚠ No cities detected — please enter cities in Override fields");
+  if (nights===null)  flags.push("⚠ Nights not found — estimated from city count");
+
+  const nightsFinal = nights || Math.max(cities.length, 1);
+
+  return {
+    cities, countries,
+    nights: nightsFinal, days: nightsFinal+1,
+    pax, children, startDate, endDate,
+    market, offerCurrency, hotelCategory: hotelCat,
+    leadType: /day\s*1|day\s*2|arrive|depart/i.test(text) ? "explicit" : "vague",
+    agencyName, specialNotes,
+    hasTM, wantsSightseeing, wantsTransfer,
+    program: buildProgram(cities, nightsFinal, startDate, wantsSightseeing, wantsTransfer, hasTM),
+    services, flags, parseMethod:"rule-based"
+  };
 }
 
 window.Parser = { parseEmail, determineCurrency, detectMarket };
