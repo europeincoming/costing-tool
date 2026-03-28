@@ -32,6 +32,12 @@
   .btn-green { background:#2e7d32; color:#fff; }
   .btn-green:hover { background:#1b5e20; }
   .btn-row { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-top:6px; }
+  .token-bar { background:#e8f0fe; border:1px solid #c5d5f5; border-radius:6px; padding:12px 16px; margin-bottom:20px; display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+  .token-bar label { font-size:12px; font-weight:600; color:#1a3a5c; white-space:nowrap; }
+  .token-bar input { flex:1; min-width:260px; border:1px solid #aac; border-radius:5px; padding:7px 10px; font-size:12px; font-family:monospace; }
+  .token-bar .ai-badge { background:#1a3a5c; color:#fff; font-size:10px; padding:3px 8px; border-radius:10px; white-space:nowrap; }
+  .token-bar .fallback-badge { background:#f57c00; color:#fff; font-size:10px; padding:3px 8px; border-radius:10px; white-space:nowrap; }
+  .token-help { font-size:11px; color:#555; margin-top:4px; }
   .parse-preview { background:#f8fafc; border:1px solid #dce8f5; border-radius:6px; padding:14px; font-size:12px; }
   .parse-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
   .parse-item .key { color:#888; font-size:11px; text-transform:uppercase; }
@@ -41,6 +47,7 @@
   .flags-list { background:#fff8e6; border:1px solid #f0c040; border-radius:6px; padding:12px; }
   .flag-item { font-size:12px; padding:3px 0; color:#6b4f00; }
   .flag-item::before { content:"⚠ "; }
+  .ai-note { background:#e8f5e9; border:1px solid #a5d6a7; border-radius:6px; padding:8px 12px; font-size:11px; color:#2e7d32; margin-bottom:8px; }
   .results-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:16px; }
   .result-box { background:#f0f6ff; border-radius:6px; padding:12px; text-align:center; }
   .result-box .amt { font-size:18px; font-weight:700; color:#1a3a5c; }
@@ -65,26 +72,43 @@
   <img src="assets/EIlogo.png" alt="Europe Incoming" onerror="this.style.display='none'">
   <div>
     <div class="topbar-title">Europe Incoming — Costing Tool</div>
-    <div class="topbar-sub">Paste a lead email below to generate a client quote and internal cost sheet</div>
+    <div class="topbar-sub">Paste a lead email to generate a client quote and internal cost sheet</div>
   </div>
 </div>
 
 <div class="main">
 
+  <!-- ── AI Token bar ── -->
+  <div class="token-bar">
+    <label>🤖 GitHub Token (for AI parsing):</label>
+    <input type="password" id="githubToken" placeholder="github_pat_xxxxxxxxxxxx" oninput="saveToken(this.value)">
+    <span id="aiBadge" class="fallback-badge">Rule-based mode</span>
+    <div style="width:100%">
+      <div class="token-help">
+        Enter your GitHub Personal Access Token to enable AI-powered parsing (GPT-4o mini). 
+        Without it the tool still works using rule-based parsing.
+        &nbsp;·&nbsp; <a href="https://github.com/settings/tokens/new?description=EI-Costing-Tool&scopes=models%3Aread" target="_blank" style="color:#1a3a5c">Generate token ↗</a>
+        &nbsp;(needs <strong>models:read</strong> scope only) · Token is saved in your browser only, never sent anywhere except GitHub.
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Email input ── -->
   <div class="card">
     <h2>1 · Paste Lead Email</h2>
-    <textarea id="emailInput" rows="10" placeholder="Paste the customer's lead email here…"></textarea>
+    <textarea id="emailInput" rows="10" placeholder="Paste the customer's lead email here…&#10;&#10;The tool will automatically extract cities, dates, group size, services, market type, and offer currency."></textarea>
     <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()" ondragover="event.preventDefault();this.classList.add('drag')" ondragleave="this.classList.remove('drag')" ondrop="handleDrop(event)">
-      <input type="file" id="fileInput" accept=".pdf,.doc,.docx,.txt" onchange="handleFile(this.files[0])">
-      📎 Drop or click to attach a competitor quote / itinerary (optional)
+      <input type="file" id="fileInput" accept=".txt" onchange="handleFile(this.files[0])">
+      📎 Drop or click to attach a .txt file (optional)
       <span id="fileName" style="display:block;margin-top:4px;font-weight:600;color:#1a3a5c;"></span>
     </div>
   </div>
 
+  <!-- ── Overrides ── -->
   <div class="card">
     <h2>2 · Override / Confirm Parsed Values <span style="font-weight:400;font-size:11px;color:#888;">(fill in if auto-detect is wrong)</span></h2>
     <div class="overrides">
-      <div class="field"><label>Group Size (pax)</label><input type="number" id="ovPax" placeholder="e.g. 32"></div>
+      <div class="field"><label>Group Size (adults)</label><input type="number" id="ovPax" placeholder="e.g. 32"></div>
       <div class="field"><label>No. of Nights</label><input type="number" id="ovNights" placeholder="e.g. 7"></div>
       <div class="field">
         <label>Market</label>
@@ -104,10 +128,11 @@
           <option value="CHF">CHF — Swiss Franc</option>
         </select>
       </div>
-      <div class="field"><label>Cities (comma separated)</label><input type="text" id="ovCities" placeholder="e.g. London, Paris, Rome"></div>
+      <div class="field"><label>Cities (comma separated)</label><input type="text" id="ovCities" placeholder="e.g. Zurich, Lucerne, Interlaken"></div>
     </div>
   </div>
 
+  <!-- ── Generate ── -->
   <div class="card">
     <h2>3 · Generate</h2>
     <div class="btn-row">
@@ -119,8 +144,10 @@
     </div>
   </div>
 
+  <!-- ── Parse preview ── -->
   <div class="card hidden" id="parseCard">
     <h2>Parsed Lead</h2>
+    <div id="aiNoteDiv" class="hidden"></div>
     <div class="parse-preview" id="parsePreview"></div>
     <div id="flagsDiv" class="hidden" style="margin-top:12px;">
       <div style="font-size:12px;font-weight:600;color:#6b4f00;margin-bottom:6px;">Items needing attention:</div>
@@ -128,6 +155,7 @@
     </div>
   </div>
 
+  <!-- ── Results ── -->
   <div class="card hidden" id="resultsCard">
     <h2>Cost Breakdown</h2>
     <div class="results-grid" id="resultsGrid"></div>
@@ -164,7 +192,7 @@ window.CITY_COUNTRY = {
   vienna:"austria",salzburg:"austria",innsbruck:"austria",graz:"austria","zell am see":"austria",
   amsterdam:"netherlands",rotterdam:"netherlands",lisse:"netherlands",
   brussels:"belgium",bruges:"belgium",ghent:"belgium",antwerp:"belgium",
-  madrid:"spain",barcelona:"spain",seville:"spain",valencia:"spain",granada:"spain",bilbao:"spain",malaga:"spain",
+  madrid:"spain",barcelona:"spain",seville:"spain",valencia:"spain",granada:"spain",malaga:"spain",
   lisbon:"portugal",porto:"portugal",faro:"portugal",
   oslo:"norway",bergen:"norway",stockholm:"sweden",gothenburg:"sweden",
   copenhagen:"denmark",helsinki:"finland",rovaniemi:"finland",reykjavik:"iceland",
@@ -174,27 +202,55 @@ window.CITY_COUNTRY = {
   ljubljana:"slovenia",bucharest:"romania",sofia:"bulgaria"
 };
 
+// ── Token management ─────────────────────────────────────────────────────────
+function saveToken(val) {
+  if (val) localStorage.setItem("ei_github_token", val);
+  else     localStorage.removeItem("ei_github_token");
+  updateAIBadge(val);
+}
+function loadToken() {
+  const t = localStorage.getItem("ei_github_token") || "";
+  if (t) {
+    document.getElementById("githubToken").value = t;
+    updateAIBadge(t);
+  }
+}
+function updateAIBadge(token) {
+  const badge = document.getElementById("aiBadge");
+  if (token && token.trim().startsWith("github_")) {
+    badge.textContent = "✓ AI mode (GPT-4o mini)";
+    badge.className = "ai-badge";
+  } else {
+    badge.textContent = "Rule-based mode";
+    badge.className = "fallback-badge";
+  }
+}
+function getToken() { return document.getElementById("githubToken").value.trim() || null; }
+
+// ── Rate loader ───────────────────────────────────────────────────────────────
 async function loadRates() {
   const files = ["pg_coach","pg_guide","pg_tm","local_transport","pp_rates","hotel_rates"];
   const loaded = {};
   await Promise.all(files.map(async name => {
     const res = await fetch("data/" + name + ".json");
-    if (!res.ok) throw new Error("Failed to load " + name + ".json");
+    if (!res.ok) throw new Error("Failed: " + name + ".json");
     loaded[name] = await res.json();
   }));
   RATES = loaded;
 }
 
+loadToken();
 loadRates()
-  .then(() => setStatus("✓ Rate data loaded — ready", "ok"))
-  .catch(e => setStatus("⚠ " + e.message, "err"));
+  .then(()  => setStatus("✓ Rate data loaded — ready", "ok"))
+  .catch(e  => setStatus("⚠ " + e.message, "err"));
 
 function setStatus(msg, cls) {
   const el = document.getElementById("genStatus");
   el.textContent = msg;
-  el.className = "status " + (cls || "");
+  el.className = "status " + (cls||"");
 }
 
+// ── File handling ─────────────────────────────────────────────────────────────
 function handleDrop(e) {
   e.preventDefault();
   document.getElementById("uploadZone").classList.remove("drag");
@@ -203,13 +259,12 @@ function handleDrop(e) {
 function handleFile(file) {
   if (!file) return;
   document.getElementById("fileName").textContent = "📎 " + file.name;
-  if (file.type === "text/plain") {
-    const r = new FileReader();
-    r.onload = ev => { if (!document.getElementById("emailInput").value.trim()) document.getElementById("emailInput").value = ev.target.result; };
-    r.readAsText(file);
-  }
+  const r = new FileReader();
+  r.onload = ev => { if (!document.getElementById("emailInput").value.trim()) document.getElementById("emailInput").value = ev.target.result; };
+  r.readAsText(file);
 }
 
+// ── Generate ──────────────────────────────────────────────────────────────────
 async function runGenerate() {
   const emailText = document.getElementById("emailInput").value.trim();
   if (!emailText) { alert("Please paste a lead email first."); return; }
@@ -217,14 +272,14 @@ async function runGenerate() {
 
   document.getElementById("generateBtn").disabled = true;
   document.getElementById("spinner").style.display = "block";
-  setStatus("Processing…");
+  const token = getToken();
+  setStatus(token ? "Calling GPT-4o mini…" : "Parsing (rule-based)…");
 
   try {
-    // 1. Parse — returns: pax, nights, days, startDate, endDate,
-    //            cities, countries, offerCurrency, market, program, flags, hasTM
-    let lead = Parser.parseEmail(emailText);
+    // 1. Parse
+    let lead = await Parser.parseEmail(emailText, token);
 
-    // 2. Overrides
+    // 2. Apply overrides
     const ovPax      = document.getElementById("ovPax").value;
     const ovNights   = document.getElementById("ovNights").value;
     const ovMarket   = document.getElementById("ovMarket").value;
@@ -232,21 +287,23 @@ async function runGenerate() {
     const ovStart    = document.getElementById("ovStartDate").value;
     const ovCities   = document.getElementById("ovCities").value;
 
-    if (ovPax)      lead.pax            = parseInt(ovPax);
-    if (ovNights)   { lead.nights       = parseInt(ovNights); lead.days = lead.nights + 1; }
-    if (ovMarket)   lead.market         = ovMarket;
-    if (ovCurrency) lead.offerCurrency  = ovCurrency;
-    if (ovStart)    lead.startDate      = ovStart;
+    if (ovPax)      lead.pax           = parseInt(ovPax);
+    if (ovNights)   { lead.nights      = parseInt(ovNights); lead.days = lead.nights+1; }
+    if (ovMarket)   lead.market        = ovMarket;
+    if (ovCurrency) lead.offerCurrency = ovCurrency;
+    if (ovStart)    lead.startDate     = ovStart;
     if (ovCities) {
-      lead.cities   = ovCities.split(",").map(c => c.trim()).filter(Boolean);
-      lead.countries= [...new Set(lead.cities.map(c => window.CITY_COUNTRY[c.toLowerCase()]).filter(Boolean))];
+      lead.cities    = ovCities.split(",").map(c=>c.trim()).filter(Boolean);
+      lead.countries = [...new Set(lead.cities.map(c=>(window.CITY_COUNTRY[c.toLowerCase()]||"")).filter(Boolean))];
       if (!ovCurrency) lead.offerCurrency = Parser.determineCurrency(lead.countries);
+      // Rebuild program with new cities
+      lead.program = [];
     }
 
-    // Pricing engine uses groupSize; parser uses pax — normalise
+    // Normalise pax→groupSize for pricing engine
     lead.groupSize = lead.pax || null;
 
-    // 3. Pricing pipeline
+    // 3. Pricing
     currentResult = Pricing.runPipeline(lead, RATES);
 
     // 4. Display
@@ -266,26 +323,41 @@ async function runGenerate() {
 function showParsePreview(lead) {
   const cities    = lead.cities    || [];
   const countries = lead.countries || [];
+
+  // Confidence
   let conf = 0;
   if (cities.length)    conf += 30;
   if (countries.length) conf += 10;
   if (lead.pax)         conf += 20;
   if (lead.nights)      conf += 20;
   if (lead.startDate)   conf += 20;
-  const cc = conf >= 70 ? "#2e7d32" : conf >= 40 ? "#f57c00" : "#c00";
+  const cc = conf>=70?"#2e7d32":conf>=40?"#f57c00":"#c00";
+
+  // AI mode note
+  const aiNote = document.getElementById("aiNoteDiv");
+  if (lead.parseMethod === "ai") {
+    aiNote.innerHTML = `<div class="ai-note">✓ Parsed by GPT-4o mini via GitHub Models${lead.agencyName&&lead.agencyName!=="Unknown Agency"?" · Agency: <strong>"+lead.agencyName+"</strong>":""}</div>`;
+    aiNote.classList.remove("hidden");
+  } else {
+    aiNote.classList.add("hidden");
+  }
 
   document.getElementById("parsePreview").innerHTML = `
     <div class="parse-grid">
       <div class="parse-item"><div class="key">Cities</div><div class="val">${cities.join(", ")||"—"}</div></div>
       <div class="parse-item"><div class="key">Countries</div><div class="val">${countries.join(", ")||"—"}</div></div>
       <div class="parse-item"><div class="key">Market</div><div class="val">${lead.market||"—"}</div></div>
-      <div class="parse-item"><div class="key">Group Size</div><div class="val">${lead.pax||"TBD (brackets)"}</div></div>
+      <div class="parse-item"><div class="key">Group Size (adults)</div><div class="val">${lead.pax||"TBD — bracket pricing"}</div></div>
+      <div class="parse-item"><div class="key">Children</div><div class="val">${lead.children||"None"}</div></div>
       <div class="parse-item"><div class="key">Nights</div><div class="val">${lead.nights||"TBD"}</div></div>
-      <div class="parse-item"><div class="key">Offer Currency</div><div class="val">${lead.offerCurrency||"—"}</div></div>
       <div class="parse-item"><div class="key">Start Date</div><div class="val">${lead.startDate||"TBD"}</div></div>
+      <div class="parse-item"><div class="key">Offer Currency</div><div class="val">${lead.offerCurrency||"—"}</div></div>
+      <div class="parse-item"><div class="key">Hotel Category</div><div class="val">${lead.hotelCategory||"4*"}</div></div>
       <div class="parse-item"><div class="key">Tour Manager</div><div class="val">${lead.hasTM?"Yes":"No"}</div></div>
-      <div class="parse-item"><div class="key">Programme Days</div><div class="val">${(lead.program||[]).length}</div></div>
+      <div class="parse-item"><div class="key">Sightseeing</div><div class="val">${lead.wantsSightseeing?"Yes":"No"}</div></div>
+      <div class="parse-item"><div class="key">Lead Type</div><div class="val">${lead.leadType||"vague"}</div></div>
     </div>
+    ${lead.specialNotes?`<div style="margin-top:8px;font-size:11px;color:#555;background:#f5f5f5;padding:6px 10px;border-radius:4px;"><strong>Notes:</strong> ${lead.specialNotes}</div>`:""}
     <div style="margin-top:10px;font-size:11px;color:#888;">
       Parse confidence: <strong style="color:${cc}">${conf}%</strong>
       <div class="confidence-bar"><div class="confidence-fill" style="width:${conf}%;background:${cc}"></div></div>
@@ -295,11 +367,11 @@ function showParsePreview(lead) {
   document.getElementById("parseCard").classList.remove("hidden");
 
   const allFlags = [
-    ...(lead.flags || []).map(f => ({ source:"Parser", msg:f })),
-    ...(currentResult ? currentResult.flags : [])
+    ...(lead.flags||[]).map(f=>({source:"Parser",msg:f})),
+    ...(currentResult?currentResult.flags:[])
   ];
   if (allFlags.length) {
-    document.getElementById("flagsList").innerHTML = allFlags.map(f => `<div class="flag-item"><strong>${f.source}:</strong> ${f.msg}</div>`).join("");
+    document.getElementById("flagsList").innerHTML = allFlags.map(f=>`<div class="flag-item"><strong>${f.source}:</strong> ${f.msg}</div>`).join("");
     document.getElementById("flagsDiv").classList.remove("hidden");
   } else {
     document.getElementById("flagsDiv").classList.add("hidden");
@@ -309,8 +381,8 @@ function showParsePreview(lead) {
 function showResults(result) {
   const { chopin } = result;
   const curr = result.lead.offerCurrency || "EUR";
-  const sym  = curr === "GBP" ? "£" : curr === "CHF" ? "CHF " : "€";
-  const fmt  = n => (n === null || n === undefined) ? "—" : sym + Number(n).toLocaleString("en-GB", {minimumFractionDigits:2,maximumFractionDigits:2});
+  const sym  = curr==="GBP"?"£":curr==="CHF"?"CHF ":"€";
+  const fmt  = n => (n===null||n===undefined)?"—":sym+Number(n).toLocaleString("en-GB",{minimumFractionDigits:2,maximumFractionDigits:2});
   const bc   = chopin.baseCosts;
 
   document.getElementById("resultsGrid").innerHTML = `
@@ -321,7 +393,7 @@ function showResults(result) {
 
   let tableHTML = "";
   if (chopin.pricing.mode === "large_group") {
-    const { groupSize, twin, single } = chopin.pricing;
+    const {groupSize,twin,single} = chopin.pricing;
     tableHTML = `<table class="pricing-table">
       <thead><tr><th>Group Size</th><th>Room Type</th><th>Net Cost/pp</th><th>Final Price/pp</th></tr></thead>
       <tbody>
@@ -339,25 +411,24 @@ function showResults(result) {
       <thead>
         <tr><th rowspan="2">Pax Range</th><th rowspan="2">Group Share</th><th colspan="2">Twin Sharing</th><th colspan="2">Single Supplement</th></tr>
         <tr><th>Net</th><th>Final</th><th>Net</th><th>Final</th></tr>
-      </thead>
-      <tbody>${rows}</tbody></table>
-      <p style="font-size:10px;color:#888;margin-top:6px;">Highlighted = 30–34 bracket (standard reference). Margin: ${chopin.marginDesc}</p>`;
+      </thead><tbody>${rows}</tbody></table>
+      <p style="font-size:10px;color:#888;margin-top:6px;">Highlighted = 30–34 reference bracket. Margin: ${chopin.marginDesc}</p>`;
   }
 
   document.getElementById("pricingTableDiv").innerHTML = tableHTML;
   document.getElementById("resultsCard").classList.remove("hidden");
-  document.getElementById("resultsCard").scrollIntoView({ behavior:"smooth" });
+  document.getElementById("resultsCard").scrollIntoView({behavior:"smooth"});
 }
 
 function downloadClientQuote() {
   if (!currentResult) return;
   const html = Documents.generateClientQuote(currentResult);
-  Documents.downloadHTML(html, "EI-Quote-" + (currentResult.lead.cities||[]).join("-") + "-" + new Date().toISOString().slice(0,10) + ".html");
+  Documents.downloadHTML(html, "EI-Quote-"+(currentResult.lead.cities||[]).join("-")+"-"+new Date().toISOString().slice(0,10)+".html");
 }
 function downloadInternalSheet() {
   if (!currentResult) return;
   const html = Documents.generateInternalSheet(currentResult);
-  Documents.downloadHTML(html, "EI-Internal-" + (currentResult.lead.cities||[]).join("-") + "-" + new Date().toISOString().slice(0,10) + ".html");
+  Documents.downloadHTML(html, "EI-Internal-"+(currentResult.lead.cities||[]).join("-")+"-"+new Date().toISOString().slice(0,10)+".html");
 }
 
 </script>
